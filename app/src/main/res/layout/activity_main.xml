@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Test"
+                android:text="Please Link an Account!"
                 android:textSize="16sp" />
         </FrameLayout>
     </RelativeLayout>

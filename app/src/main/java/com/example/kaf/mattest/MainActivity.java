@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_settings);
+        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_acc);
 // Handle Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
                         item1,
                         new DividerDrawerItem(),
                         item2,
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_acc)
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_purchase),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_bill_pay),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_my_qr_code),
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
