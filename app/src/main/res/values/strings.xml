@@ -6,6 +6,7 @@
     <string name="drawer_item_purchase">Purchase</string>
     <string name="drawer_item_bill_pay">Bill Payment</string>
     <string name="drawer_item_my_qr_code">My QR Code</string>
-
+    <string name="drawer_item_logout">Log Out</string>
+    <string name="drawer_item_finger_print">Set FingerPrint</string>
 
 </resources>
