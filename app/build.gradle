@@ -46,4 +46,7 @@ dependencies {
     //Adding Swipe Menu List
     compile 'com.baoyz.swipemenulistview:library:1.3.0'
 
+    // Ticket View
+    compile 'com.vipulasri:ticketview:1.0.4'
+
 }

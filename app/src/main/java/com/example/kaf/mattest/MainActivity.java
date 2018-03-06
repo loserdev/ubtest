@@ -54,39 +54,7 @@ public class MainActivity extends AppCompatActivity {
         swipeListView.setMenuCreator(creator);
     }
 
-    private List<TransactionLog> getTransactionLog(){
-        List<TransactionLog> tempTransLogList = new ArrayList<TransactionLog>();
-        TransactionLog tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(10);
-        tempTransLog.setDate("12 Jan 2018");
-        tempTransLog.setMerchantName("Agora");
-        tempTransLogList.add(tempTransLog);
 
-        tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(50);
-        tempTransLog.setDate("14 Feb 2018");
-        tempTransLog.setMerchantName("Agora");
-        tempTransLogList.add(tempTransLog);
-
-        tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(800);
-        tempTransLog.setDate("10 Feb 2018");
-        tempTransLog.setMerchantName("Mena");
-        tempTransLogList.add(tempTransLog);
-
-        tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(90);
-        tempTransLog.setDate("15 March 2018");
-        tempTransLog.setMerchantName("Shoopers World");
-        tempTransLogList.add(tempTransLog);
-
-        tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(350);
-        tempTransLog.setDate("29 Jan 2018");
-        tempTransLog.setMerchantName("Shopno");
-        tempTransLogList.add(tempTransLog);
-        return tempTransLogList;
-    }
 
     // Swipe List
     SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -94,34 +62,25 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void create(SwipeMenu menu) {
             // create "open" item
-            SwipeMenuItem openItem = new SwipeMenuItem(
-                getApplicationContext());
-            // set item background
-            openItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
-                0xCE)));
-            // set item width
-            openItem.setWidth(dp2px(90));
-            // set item title
-            openItem.setTitle("Open");
-            // set item title fontsize
-            openItem.setTitleSize(18);
-            // set item title font color
-            openItem.setTitleColor(Color.WHITE);
-            // add to menu
-            menu.addMenuItem(openItem);
+            SwipeMenuItem detailsItem = new SwipeMenuItem(getApplicationContext());
+            detailsItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,0xCE)));
+            detailsItem.setWidth(dp2px(90));
+            detailsItem.setTitle("Details");
+            detailsItem.setTitleSize(18);
+            detailsItem.setTitleColor(Color.BLACK);
+            menu.addMenuItem(detailsItem);
 
-            // create "delete" item
-            SwipeMenuItem deleteItem = new SwipeMenuItem(
-                getApplicationContext());
-            // set item background
-            deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                0x3F, 0x25)));
-            // set item width
-            deleteItem.setWidth(dp2px(90));
+            SwipeMenuItem hideItem = new SwipeMenuItem(getApplicationContext());
+            hideItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,0xCE)));
+            hideItem.setWidth(dp2px(90));
+            hideItem.setTitle("Hide");
+            hideItem.setTitleSize(18);
+            hideItem.setTitleColor(Color.BLACK);
+            menu.addMenuItem(hideItem);
             // set a icon
-            deleteItem.setIcon(R.drawable.ic_launcher_foreground);
+            //deleteItem.setIcon(R.drawable.ic_launcher_foreground);
             // add to menu
-            menu.addMenuItem(deleteItem);
+
         }
     };
 
@@ -179,6 +138,41 @@ public class MainActivity extends AppCompatActivity {
                 }
             })
             .build();
+    }
+
+
+    private List<TransactionLog> getTransactionLog(){
+        List<TransactionLog> tempTransLogList = new ArrayList<TransactionLog>();
+        TransactionLog tempTransLog = new TransactionLog();
+        tempTransLog.setAmount(10);
+        tempTransLog.setDate("12 Jan 2018");
+        tempTransLog.setMerchantName("Agora");
+        tempTransLogList.add(tempTransLog);
+
+        tempTransLog = new TransactionLog();
+        tempTransLog.setAmount(50);
+        tempTransLog.setDate("14 Feb 2018");
+        tempTransLog.setMerchantName("Agora");
+        tempTransLogList.add(tempTransLog);
+
+        tempTransLog = new TransactionLog();
+        tempTransLog.setAmount(800);
+        tempTransLog.setDate("10 Feb 2018");
+        tempTransLog.setMerchantName("Mena");
+        tempTransLogList.add(tempTransLog);
+
+        tempTransLog = new TransactionLog();
+        tempTransLog.setAmount(90);
+        tempTransLog.setDate("15 March 2018");
+        tempTransLog.setMerchantName("Shoopers World");
+        tempTransLogList.add(tempTransLog);
+
+        tempTransLog = new TransactionLog();
+        tempTransLog.setAmount(350);
+        tempTransLog.setDate("29 Jan 2018");
+        tempTransLog.setMerchantName("Shopno");
+        tempTransLogList.add(tempTransLog);
+        return tempTransLogList;
     }
 }
 
