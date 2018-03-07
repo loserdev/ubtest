@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<TransactionLog> mTransLog;
     private SwipeListItemAdapter mTansactionAdapter;
+    private Drawer result;
 
     private static final int ZBAR_CAMERA_PERMISSION = 1;
     private Class<?> mClss;
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             .withActivity(this)
             .withHeaderBackground(R.drawable.header)
             .addProfiles(
-                new ProfileDrawerItem().withName("Mr. han").withEmail("han@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
+                new ProfileDrawerItem().withName("Mr. Customer").withEmail("customer@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
             )
             .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                 @Override
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //create the drawer and remember the `Drawer` result object
-        Drawer result = new DrawerBuilder()
+        result = new DrawerBuilder()
             .withActivity(this)
             .withToolbar(toolbar)
             .withHasStableIds(true)
@@ -150,43 +151,51 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                     // do something with the clicked item :D
-                    Toasty.info(getApplicationContext(),Integer.toString(position), Toast.LENGTH_LONG).show();
+
                     switch(position){
                         case 1:
+                            closeDrawer();
                             break ;
                         case 2:
+                            Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
                         case 3:
-                            Intent reportIntent = new Intent(getApplicationContext(), ReportActivity.class);
-                            startActivity(reportIntent);
-                            break ;
-                        case 4:
-                            //Intent rIntent = new Intent(getApplicationContext(), ReceiptActivity.class);
-                            launchActivity(ScannerActivity.class);
-                            /*Intent scannerIntent = new Intent(getApplicationContext(), ScannerActivity.class);
-                            startActivity(scannerIntent);*/
-                            break ;
-                        case 5:
+//                            Intent reportIntent = new Intent(getApplicationContext(), ReportActivity.class);
+//                            startActivity(reportIntent);
                             Intent reportPiePolyIntent = new Intent(getApplicationContext(), ReportPiePolyActivity.class);
                             startActivity(reportPiePolyIntent);
+                            break ;
+                        case 4:
+                            launchActivity(ScannerActivity.class);
+                            break ;
+                        case 5:
+                            Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
                         case 6:
                             Intent myQrIntent = new Intent(getApplicationContext(), MyQrActivity.class);
                             startActivity(myQrIntent);
                             break ;
                         case 7:
+                            Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
                         case 8:
+                            Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
                         case 9:
+                            finish();
                             break ;
                         default:
+                            closeDrawer();
                             break ;
                     }
                     return true;
                 }
             })
             .build();
+    }
+
+    private void closeDrawer(){
+        result.closeDrawer();
     }
 
     public void launchActivity(Class<?> clss) {

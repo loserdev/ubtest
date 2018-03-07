@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://I:\per_pas_hub\ubtest\MatTest.iml" filepath="I:\per_pas_hub\ubtest\MatTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MatTest.iml" filepath="$PROJECT_DIR$/MatTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ubtest.iml" filepath="$PROJECT_DIR$/ubtest.iml" />
     </modules>
   </component>
 </project>
