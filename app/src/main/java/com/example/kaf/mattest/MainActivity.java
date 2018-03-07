@@ -158,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(rIntent);
                             break ;
                         case 5:
+                            Intent reportPiePolyIntent = new Intent(getApplicationContext(), ReportPiePolyActivity.class);
+                            startActivity(reportPiePolyIntent);
                             break ;
                         case 6:
                             break ;

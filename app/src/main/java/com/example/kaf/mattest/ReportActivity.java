@@ -38,15 +38,12 @@ public class ReportActivity extends AppCompatActivity implements SeekBar.OnSeekB
     private PieChart mChart;
     private SeekBar mSeekBarX, mSeekBarY;
     private TextView tvX, tvY;
-    protected String[] mMonths = new String[] {
+    /*protected String[] mMonths = new String[] {
             "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
-    };
+    };*/
 
     protected String[] mParties = new String[] {
-            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
-            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
-            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
-            "Party Y", "Party Z"
+            "Emergency Fund", "Housing", "Health Care", "Food", "Groceries", "Entertainment", "Savings", "Utilities"
     };
 
     protected Typeface mTfRegular;
@@ -220,12 +217,12 @@ public class ReportActivity extends AppCompatActivity implements SeekBar.OnSeekB
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
         for (int i = 0; i < count ; i++) {
-            entries.add(new PieEntry((float) ((Math.random() * mult) + mult / 5),
+            entries.add(new PieEntry((float) ((Math.random() * mult) + mult / 3),
                     mParties[i % mParties.length],
                     getResources().getDrawable(R.drawable.star)));
         }
 
-        PieDataSet dataSet = new PieDataSet(entries, "Election Results");
+        PieDataSet dataSet = new PieDataSet(entries, "Personal Expense Info.");
 
         dataSet.setDrawIcons(false);
 
@@ -272,7 +269,7 @@ public class ReportActivity extends AppCompatActivity implements SeekBar.OnSeekB
 
     private SpannableString generateCenterSpannableText() {
 
-        SpannableString s = new SpannableString("MPAndroidChart\ndeveloped by Philipp Jahoda");
+        SpannableString s = new SpannableString("Expense Report\nDeveloped by developer!");
         s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
         s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 15, 0);
         s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);

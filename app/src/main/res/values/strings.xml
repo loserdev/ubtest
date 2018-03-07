@@ -10,5 +10,6 @@
     <string name="drawer_item_logout">Log Out</string>
     <string name="drawer_item_finger_print">Set FingerPrint</string>
     <string name="title_activity_report">ReportActivity</string>
+    <string name="title_activity_report_pie">ReportPieActivity</string>
 
 </resources>
