@@ -49,4 +49,8 @@ dependencies {
     // Ticket View
     compile 'com.vipulasri:ticketview:1.0.4'
 
+    // Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    compile 'com.github.GrenderG:Toasty:1.2.8'
 }

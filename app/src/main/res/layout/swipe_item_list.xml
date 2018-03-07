@@ -6,9 +6,10 @@
 
   <ImageView
     android:id="@+id/iv_icon"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:src="@drawable/ic_launcher_foreground" />
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_centerVertical="true"
+    android:src="@drawable/slim_pay_ok" />
 
   <TextView
     android:id="@+id/tv_merchant_name"

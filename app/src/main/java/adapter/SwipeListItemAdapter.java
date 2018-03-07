@@ -55,17 +55,16 @@ public class SwipeListItemAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     if (convertView == null) {
-      convertView = View.inflate(context.getApplicationContext(),
-          R.layout.swipe_item_list, null);
+      convertView = View.inflate(context.getApplicationContext(),R.layout.swipe_item_list, null);
       new ViewHolder(convertView);
     }
     ViewHolder holder = (ViewHolder) convertView.getTag();
     TransactionLog item = getItem(position);
     Log.e("Adapter","Pos: "+position+"Item: "+item.toString());
     //holder.iv_icon.setImageDrawable();
-    holder.tv_merchant_name.setText(item.getMerchantName());
-    holder.tv_amount.setText(Integer.toString(item.getAmount()));
-    holder.tv_date.setText(item.getDate());
+    holder.tv_merchant_name.setText("Merchant: "+item.getMerchantName());
+    holder.tv_amount.setText("Amount: "+Integer.toString(item.getAmount())+" \u200E৳");
+    holder.tv_date.setText("Date: "+item.getDate());
     return convertView;
   }
 

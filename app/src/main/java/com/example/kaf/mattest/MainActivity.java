@@ -1,6 +1,8 @@
 package com.example.kaf.mattest;
 
 import adapter.SwipeListItemAdapter;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import com.baoyz.swipemenulistview.SwipeMenu;
@@ -26,6 +29,8 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import data.TransactionLog;
+import es.dmoral.toasty.Toasty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createDrawer();
+
         // set creator
         mTransLog = getTransactionLog();
 
@@ -52,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         // step 1. create a MenuCreator
         //SwipeMenuCreator creator = new SwipeMenuCreator()
         swipeListView.setMenuCreator(creator);
+
+
     }
 
 
@@ -71,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             menu.addMenuItem(detailsItem);
 
             SwipeMenuItem hideItem = new SwipeMenuItem(getApplicationContext());
-            hideItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,0xCE)));
+            hideItem.setBackground(new ColorDrawable(Color.rgb(0xCE, 0xCE,0xCE)));
             hideItem.setWidth(dp2px(90));
             hideItem.setTitle("Hide");
             hideItem.setTitleSize(18);
@@ -121,8 +129,9 @@ public class MainActivity extends AppCompatActivity {
             .withAccountHeader(headerResult)
             .addDrawerItems(
                 item1,
-                new DividerDrawerItem(),
+                //new DividerDrawerItem(),
                 item2,
+                new SecondaryDrawerItem().withName(R.string.drawer_item_report),
                 new SecondaryDrawerItem().withName(R.string.drawer_item_purchase),
                 new SecondaryDrawerItem().withName(R.string.drawer_item_bill_pay),
                 new SecondaryDrawerItem().withName(R.string.drawer_item_my_qr_code),
@@ -134,6 +143,33 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                     // do something with the clicked item :D
+                    Toasty.info(getApplicationContext(),Integer.toString(position), Toast.LENGTH_LONG).show();
+                    switch(position){
+                        case 1:
+                            break ;
+                        case 2:
+                            break ;
+                        case 3:
+                            Intent reportIntent = new Intent(getApplicationContext(), ReportActivity.class);
+                            startActivity(reportIntent);
+                            break ;
+                        case 4:
+                            Intent rIntent = new Intent(getApplicationContext(), ReceiptActivity.class);
+                            startActivity(rIntent);
+                            break ;
+                        case 5:
+                            break ;
+                        case 6:
+                            break ;
+                        case 7:
+                            break ;
+                        case 8:
+                            break ;
+                        case 9:
+                            break ;
+                        default:
+                            break ;
+                    }
                     return true;
                 }
             })
@@ -150,15 +186,15 @@ public class MainActivity extends AppCompatActivity {
         tempTransLogList.add(tempTransLog);
 
         tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(50);
-        tempTransLog.setDate("14 Feb 2018");
-        tempTransLog.setMerchantName("Agora");
+        tempTransLog.setAmount(800);
+        tempTransLog.setDate("10 Feb 2018");
+        tempTransLog.setMerchantName("Mena Bazar");
         tempTransLogList.add(tempTransLog);
 
         tempTransLog = new TransactionLog();
-        tempTransLog.setAmount(800);
-        tempTransLog.setDate("10 Feb 2018");
-        tempTransLog.setMerchantName("Mena");
+        tempTransLog.setAmount(50);
+        tempTransLog.setDate("14 Feb 2018");
+        tempTransLog.setMerchantName("Agora");
         tempTransLogList.add(tempTransLog);
 
         tempTransLog = new TransactionLog();
