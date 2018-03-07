@@ -2,9 +2,13 @@ package com.example.kaf.mattest;
 
 import adapter.SwipeListItemAdapter;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -41,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
     private List<TransactionLog> mTransLog;
     private SwipeListItemAdapter mTansactionAdapter;
+
+    private static final int ZBAR_CAMERA_PERMISSION = 1;
+    private Class<?> mClss;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,14 +161,18 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(reportIntent);
                             break ;
                         case 4:
-                            Intent rIntent = new Intent(getApplicationContext(), ReceiptActivity.class);
-                            startActivity(rIntent);
+                            //Intent rIntent = new Intent(getApplicationContext(), ReceiptActivity.class);
+                            launchActivity(ScannerActivity.class);
+                            /*Intent scannerIntent = new Intent(getApplicationContext(), ScannerActivity.class);
+                            startActivity(scannerIntent);*/
                             break ;
                         case 5:
                             Intent reportPiePolyIntent = new Intent(getApplicationContext(), ReportPiePolyActivity.class);
                             startActivity(reportPiePolyIntent);
                             break ;
                         case 6:
+                            Intent myQrIntent = new Intent(getApplicationContext(), MyQrActivity.class);
+                            startActivity(myQrIntent);
                             break ;
                         case 7:
                             break ;
@@ -178,7 +189,33 @@ public class MainActivity extends AppCompatActivity {
             .build();
     }
 
+    public void launchActivity(Class<?> clss) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            mClss = clss;
+            ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.CAMERA}, ZBAR_CAMERA_PERMISSION);
+        } else {
+            Intent intent = new Intent(this, clss);
+            startActivity(intent);
+        }
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode,  String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case ZBAR_CAMERA_PERMISSION:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if(mClss != null) {
+                        Intent intent = new Intent(this, mClss);
+                        startActivity(intent);
+                    }
+                } else {
+                    Toast.makeText(this, "Please grant camera permission to use the QR Scanner", Toast.LENGTH_SHORT).show();
+                }
+                return;
+        }
+    }
     private List<TransactionLog> getTransactionLog(){
         List<TransactionLog> tempTransLogList = new ArrayList<TransactionLog>();
         TransactionLog tempTransLog = new TransactionLog();

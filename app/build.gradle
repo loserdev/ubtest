@@ -53,4 +53,8 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
     compile 'com.github.GrenderG:Toasty:1.2.8'
+
+    // Zbar
+    compile 'com.google.zxing:core:3.3.0'
+    compile 'me.dm7.barcodescanner:zbar:1.9.8'
 }
