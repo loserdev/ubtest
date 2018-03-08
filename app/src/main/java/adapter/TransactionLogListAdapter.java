@@ -14,12 +14,12 @@ import java.util.List;
 
 
 
-public class SwipeListItemAdapter extends BaseAdapter {
+public class TransactionLogListAdapter extends BaseAdapter {
 
   public List<TransactionLog> mTransactionList;
   public Context context;
 
-  public SwipeListItemAdapter(List<TransactionLog> mTransactionList,Context context )
+  public TransactionLogListAdapter(List<TransactionLog> mTransactionList,Context context )
   {
     this.context = context;
     this.mTransactionList = mTransactionList;

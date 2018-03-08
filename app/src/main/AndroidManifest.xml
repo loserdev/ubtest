@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".MyQrActivity">
         </activity>
+        <activity android:name=".TransactionLogActivity">
+        </activity>
     </application>
 
 </manifest>

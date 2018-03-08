@@ -38,7 +38,7 @@
                   android:paddingRight="10dp"
                   android:paddingTop="10dp"
                   android:paddingBottom="20dp"
-                  android:src="@drawable/home_card"/>
+                  android:src="@drawable/blue_card"/>
 
                 <TextView
                   android:id="@+id/txtLabel"
