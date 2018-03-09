@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="200dp"
+  android:background="@color/md_light_primary_icon"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/md_white_1000"
+      android:orientation="vertical">
+      
+      <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+          >
+          <TextView
+
+            android:text="Transaction Id:"
+            />
+          <TextView
+            android:id="@+id/tid_tv"
+
+            android:text="94583094588094"
+            />
+        </TableRow>
+
+        <TableRow
+          >
+          <TextView
+
+            android:text="Merchant Name:"
+            />
+          <TextView
+            android:id="@+id/mer_name_tv"
+
+            android:text="Mena Bazar"
+            />
+        </TableRow>
+
+        <TableRow
+          android:layout_weight="5">
+          <TextView
+
+            android:text="Date:"
+            />
+          <TextView
+            android:id="@+id/date_tv"
+
+            android:text="29/12/20017"
+            />
+        </TableRow>
+
+        <TableRow
+          android:layout_weight="5">
+          <TextView
+
+            android:text="Amount: "
+            android:textStyle="bold"
+            />
+          <TextView
+            android:id="@+id/amount_tv"
+
+            android:text="9457/="
+            android:textStyle="bold"
+            />
+        </TableRow>
+
+        </TableLayout>
+
+      <Button
+        android:id="@+id/ok_dialog_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:text="OK"/>
+
+    </LinearLayout>
+
+    <ImageView
+      android:id="@+id/test"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      />
+  </LinearLayout>
+
+
+</LinearLayout>

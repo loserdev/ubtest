@@ -3,6 +3,7 @@ package com.example.kaf.mattest;
 import adapter.TransactionLogListAdapter;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -20,6 +21,8 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.example.kaf.mattest.dialog.DialogManager;
+import com.example.kaf.mattest.dialog.TransactionDetailsDialog.OnOkButtonClickListener;
 import com.mikepenz.itemanimators.AlphaCrossFadeAnimator;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -64,6 +67,37 @@ public class MainActivity extends AppCompatActivity {
         // step 1. create a MenuCreator
         //SwipeMenuCreator creator = new SwipeMenuCreator()
         swipeListView.setMenuCreator(creator);
+
+        // step 2. listener item click event
+        swipeListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                //ApplicationInfo item = mAppList.get(position);
+                switch (index) {
+                    case 0:
+                        // Detail
+                        showTransactionDetailDialog();
+                        break;
+                    case 1:
+                        // Hide
+                        /*mAppList.remove(position);
+                        mAdapter.notifyDataSetChanged();*/
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+
+    public void showTransactionDetailDialog(){
+        TransactionLog transactionLog = new TransactionLog();
+        getDialogManager().showTransactionDetailDialog(transactionLog,
+            new OnOkButtonClickListener() {
+                @Override
+                public void onOkBtnClick() {
+                    dialogManager.dismissDialog();
+                }
+            });
     }
 
 
@@ -154,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
                             break ;
                         case 2:
                             Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
+                            Intent receipt = new Intent(getApplicationContext(), ReceiptActivity.class);
+                            startActivity(receipt);
                             break ;
                         case 3:
 //                            Intent reportIntent = new Intent(getApplicationContext(), ReportActivity.class);
@@ -224,5 +260,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    protected DialogManager dialogManager;
+
+    protected DialogManager getDialogManager(){
+        if(dialogManager == null){
+            dialogManager = new DialogManager(this);
+        }
+        return dialogManager;
+    }
 }
 

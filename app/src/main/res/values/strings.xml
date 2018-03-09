@@ -12,4 +12,9 @@
     <string name="title_activity_report">ReportActivity</string>
     <string name="title_activity_report_pie">ReportPieActivity</string>
 
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">Ok</string>
+
 </resources>

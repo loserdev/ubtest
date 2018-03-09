@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/md_white_1000"
+    android:background="@color/md_light_primary_icon"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -11,7 +11,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:background="@color/md_light_primary_icon">
+            android:background="@color/md_white_1000">
 
 
         </RelativeLayout>
@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="40dp"/>
+            />
     </LinearLayout>
 
 

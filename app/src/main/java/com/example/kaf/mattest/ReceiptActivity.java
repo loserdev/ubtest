@@ -23,8 +23,7 @@ public class ReceiptActivity extends Activity {
         setContentView(R.layout.test);
         ImageView v= (ImageView) findViewById(R.id.test);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.aa__triangle);
-
+        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.ic_trans_det_btm);
         BitmapDrawable tile = new BitmapDrawable(getResources(),bitmap);
 
 
@@ -34,7 +33,7 @@ public class ReceiptActivity extends Activity {
         tile.setTileModeX(Shader.TileMode.REPEAT);
         tile.setBounds(bounds);
         v.setBackground(tile);
-        v.setMaxHeight(height);
-        v.setMinimumHeight(height);
+        //v.setMaxHeight(height);
+        //v.setMinimumHeight(height);
     }
 }
