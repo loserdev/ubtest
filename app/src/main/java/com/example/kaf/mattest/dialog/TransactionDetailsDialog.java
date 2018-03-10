@@ -2,9 +2,16 @@ package com.example.kaf.mattest.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import com.example.kaf.mattest.R;
 import data.TransactionLog;
 
@@ -32,6 +39,21 @@ public class TransactionDetailsDialog extends Dialog {
     super.onCreate(saveInstanceState);
     setContentView(R.layout.trans_detail_dialog);
     okButton = findViewById(R.id.ok_dialog_btn);
+    this.setCancelable(true);
+    this.setTitle("Transaction Detail");
+
+    ImageView v= (ImageView) findViewById(R.id.broken_arrow);
+
+    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_trans_det_btm);
+    BitmapDrawable tile = new BitmapDrawable(context.getResources(),bitmap);
+
+
+    int width = v.getWidth();
+    int height = tile.getIntrinsicHeight();
+    Rect bounds = new Rect(0,0,width,height);
+    tile.setTileModeX(Shader.TileMode.REPEAT);
+    tile.setBounds(bounds);
+    v.setBackground(tile);
 
     okButton.setOnClickListener(new View.OnClickListener(){
       @Override

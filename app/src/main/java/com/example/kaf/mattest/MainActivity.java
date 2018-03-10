@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 new SecondaryDrawerItem().withName(R.string.drawer_item_transaction_log),
                 new SecondaryDrawerItem().withName(R.string.drawer_item_my_qr_code),
                 new SecondaryDrawerItem().withName(R.string.drawer_item_settings),
-                new SecondaryDrawerItem().withName(R.string.drawer_item_finger_print),
+                //new SecondaryDrawerItem().withName(R.string.drawer_item_finger_print),
                 new SecondaryDrawerItem().withName(R.string.drawer_item_logout)
             )
             .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -213,7 +213,8 @@ public class MainActivity extends AppCompatActivity {
                             Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
                         case 8:
-                            Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
+                            //Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
+                            finish();
                             break ;
                         case 9:
                             finish();
