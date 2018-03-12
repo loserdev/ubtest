@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.kaf.mattest">
+  package="com.kft.mfs">
 
     <uses-permission android:name="android.permission.CAMERA"/>
 
@@ -11,25 +11,25 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.kft.mfs.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ReceiptActivity"/>
+        <activity android:name="com.kft.mfs.ReceiptActivity"/>
         <activity
           android:label="@string/title_activity_report"
-          android:name=".ReportActivity"/>
+          android:name="com.kft.mfs.ReportActivity"/>
         <activity
           android:label="@string/title_activity_report_pie"
-          android:name=".ReportPiePolyActivity"/>
-        <activity android:name=".ScannerActivity">
+          android:name="com.kft.mfs.ReportPiePolyActivity"/>
+        <activity android:name="com.kft.mfs.ScannerActivity">
         </activity>
-        <activity android:name=".MyQrActivity">
+        <activity android:name="com.kft.mfs.MyQrActivity">
         </activity>
-        <activity android:name=".TransactionLogActivity">
+        <activity android:name="com.kft.mfs.TransactionLogActivity">
         </activity>
     </application>
 
