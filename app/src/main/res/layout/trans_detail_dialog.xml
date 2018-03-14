@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="250dp"
   android:layout_height="wrap_content"
-  android:background="#00000000"
   android:orientation="vertical">
 
   <LinearLayout
@@ -14,80 +13,112 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@color/md_white_1000"
+      android:gravity="center"
       android:orientation="vertical"
-        android:gravity="center">
-      
+      >
+
       <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-          android:paddingLeft="5dp"
-          android:paddingRight="5dp">
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_centerHorizontal="true">
 
-        <TableRow>
+        <TableRow
+          android:paddingTop="5dp"
+          android:paddingBottom="5dp">
           <TextView
-            android:text="Transaction Id:"
+            android:text="Date:"
+            android:textAlignment="viewEnd"
+            />
+          <TextView
+            android:id="@+id/date_tv"
+            android:text=""
+            android:textAlignment="viewEnd"
+            />
+        </TableRow>
+
+        <TableRow
+          android:paddingTop="5dp"
+          android:paddingBottom="5dp">
+          <TextView
+            android:text="Transaction Id: "
+            android:textAlignment="viewEnd"
             />
 
           <TextView
             android:id="@+id/tid_tv"
-            android:text="94583094588094"
+            android:text=""
+            android:textAlignment="viewEnd"
             />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+          android:paddingTop="5dp"
+          android:paddingBottom="5dp">
           <TextView
             android:text="Merchant Name: "
+            android:textAlignment="viewEnd"
             />
           <TextView
             android:id="@+id/mer_name_tv"
-            android:text="Mena Bazar"
+            android:text=""
+            android:textAlignment="viewEnd"
             />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+          android:paddingTop="5dp"
+          android:paddingBottom="5dp">
           <TextView
-            android:text="Date:"
+            android:text="Transaction Type: "
+            android:textAlignment="viewEnd"
             />
           <TextView
-            android:id="@+id/date_tv"
-            android:text="29/12/20017"
+            android:id="@+id/transaction_type_tv"
+            android:text=""
+            android:textAlignment="viewEnd"
             />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+          android:paddingTop="5dp"
+          android:paddingBottom="5dp">
           <TextView
-            android:text="Amount: "
             android:textStyle="bold"
+            android:text="Amount: "
+            android:textAlignment="viewEnd"
             />
           <TextView
             android:id="@+id/amount_tv"
-            android:text="9457/="
             android:textStyle="bold"
+            android:text=""
+            android:textAlignment="viewEnd"
             />
         </TableRow>
 
-        </TableLayout>
+
+      </TableLayout>
       <Button
-          android:id="@+id/ok_dialog_btn"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="5dp"
-          android:layout_marginTop="20dp"
-          android:text="Ok"
-          android:layout_centerHorizontal="true"          />
+        android:id="@+id/ok_dialog_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="Ok"/>
 
 
     </LinearLayout>
 
 
-
   </LinearLayout>
 
   <ImageView
-      android:id="@+id/broken_arrow"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      />
+    android:id="@+id/broken_arrow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    />
 </LinearLayout>

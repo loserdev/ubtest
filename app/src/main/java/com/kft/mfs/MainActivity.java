@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
         mTransLog = TransactionLogList.getAllTransactionLog();
 
         SwipeMenuListView swipeListView = (SwipeMenuListView) findViewById(R.id.swipelistView);
-        mTansactionSwipeListAdapter = new TransactionLogListAdapter(mTransLog,getApplicationContext());
+        mTansactionSwipeListAdapter = new TransactionLogListAdapter(getApplicationContext(),mTransLog,null);
         swipeListView.setAdapter(mTansactionSwipeListAdapter);
 
         // step 1. create a MenuCreator

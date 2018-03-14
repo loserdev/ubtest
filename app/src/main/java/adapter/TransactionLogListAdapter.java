@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -18,11 +19,13 @@ public class TransactionLogListAdapter extends BaseAdapter {
 
   public List<TransactionLog> mTransactionList;
   public Context context;
+  public OnTransactionItemDetailListener onTransactionItemDetailListener;
 
-  public TransactionLogListAdapter(List<TransactionLog> mTransactionList,Context context )
+  public TransactionLogListAdapter(Context context, List<TransactionLog> mTransactionList,OnTransactionItemDetailListener onTransactionItemDetailListener )
   {
     this.context = context;
     this.mTransactionList = mTransactionList;
+    this.onTransactionItemDetailListener = onTransactionItemDetailListener;
   }
 
   @Override
@@ -59,12 +62,18 @@ public class TransactionLogListAdapter extends BaseAdapter {
       new ViewHolder(convertView);
     }
     ViewHolder holder = (ViewHolder) convertView.getTag();
-    TransactionLog item = getItem(position);
+    final TransactionLog item = getItem(position);
     Log.e("Adapter","Pos: "+position+"Item: "+item.toString());
     //holder.iv_icon.setImageDrawable();
     holder.tv_merchant_name.setText("Merchant: "+item.getMerchantName());
     holder.tv_amount.setText("Amount: "+Integer.toString(item.getAmount())+" \u200E৳");
     holder.tv_date.setText("Date: "+item.getDate());
+    convertView.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        onTransactionItemDetailListener.onTransactionItemClick(item);
+      }
+    });
     return convertView;
   }
 
@@ -87,5 +96,9 @@ public class TransactionLogListAdapter extends BaseAdapter {
   public int dp2px(int dp) {
     return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
         context.getResources().getDisplayMetrics());
+  }
+
+  public interface OnTransactionItemDetailListener{
+    void onTransactionItemClick(TransactionLog transactionLog);
   }
 }

@@ -5,8 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionLog {
+
+  private String transactionId;
   private int amount;
   private String date;
+  private String merchantName;
+  private String transactionType;
+
+  public String getTransactionType() {
+    return transactionType;
+  }
+
+  public void setTransactionType(String transactionType) {
+    this.transactionType = transactionType;
+  }
 
   public int getAmount() {
     return amount;
@@ -32,6 +44,15 @@ public class TransactionLog {
     this.merchantName = merchantName;
   }
 
-  private String merchantName;
+  public String getTransactionId() {
+    return transactionId;
+  }
+
+  public void setTransactionId(String transactionId) {
+    this.transactionId = transactionId;
+  }
+
+
+
 
 }

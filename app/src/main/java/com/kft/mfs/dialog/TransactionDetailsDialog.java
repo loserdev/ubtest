@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import android.widget.TextView;
 import com.kft.mfs.R;
 import data.TransactionLog;
 
@@ -26,9 +27,14 @@ public class TransactionDetailsDialog extends Dialog {
   private Context context;
   private TransactionLog transactionLog;
   Button okButton;
+  TextView transactionId_tv ;
+  TextView merchant_name_tv;
+  TextView date_tv;
+  TextView transactionType_tv;
+  TextView amount_tv;
 
   public TransactionDetailsDialog(Context context, TransactionLog transactionLog, OnOkButtonClickListener onOkButtonClickListener) {
-    super(context);
+    super(context,R.style.TransactionDetailDialog);
     this.context = context;
     this.transactionLog = transactionLog;
     this.onOkButtonClickListener = onOkButtonClickListener;
@@ -42,7 +48,20 @@ public class TransactionDetailsDialog extends Dialog {
     this.setCancelable(true);
     this.setTitle("Transaction Detail");
 
+
     ImageView v= (ImageView) findViewById(R.id.broken_arrow);
+    transactionId_tv = (TextView) findViewById(R.id.tid_tv);
+    merchant_name_tv = (TextView) findViewById(R.id.mer_name_tv);
+    date_tv = (TextView) findViewById(R.id.date_tv);
+    transactionType_tv = (TextView) findViewById(R.id.transaction_type_tv);
+    amount_tv = (TextView) findViewById(R.id.amount_tv);
+
+    transactionId_tv.setText(transactionLog.getTransactionId());
+    merchant_name_tv.setText(transactionLog.getMerchantName());
+    date_tv.setText(transactionLog.getDate());
+    transactionType_tv.setText(transactionLog.getTransactionType());
+    amount_tv.setText(Integer.toString(transactionLog.getAmount())+" ৳");
+
 
     Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_trans_det_btm);
     BitmapDrawable tile = new BitmapDrawable(context.getResources(),bitmap);

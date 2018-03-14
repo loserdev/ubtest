@@ -19,5 +19,6 @@
     <string name="r_u_sure">Are you sure?</string>
     <string name="positive_pay">Pay</string>
     <string name="negative_pay">Not now.</string>
+    <string name="bd_tk">৳</string>
 
 </resources>
