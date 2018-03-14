@@ -6,7 +6,11 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
@@ -148,13 +152,40 @@ public class MainActivity extends BaseActivity {
                 }
             })
             .build();
+
+        // Create Drawable
+        Drawable home = ContextCompat.getDrawable(this,R.drawable.ic_menu_home);
+        home.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable addAcc = ContextCompat.getDrawable(this,R.drawable.ic_menu_addac);
+        addAcc.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable expenceRpt = ContextCompat.getDrawable(this, R.drawable.ic_menu_charts_pie);
+        expenceRpt.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable purchase = ContextCompat.getDrawable(this, R.drawable.ic_menu_debts);
+        purchase.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable log = ContextCompat.getDrawable(this, R.drawable.ic_menu_reports);
+        log.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable qr = ContextCompat.getDrawable(this, R.drawable.ic_menu_my_qr);
+        qr.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable settings = ContextCompat.getDrawable(this, R.drawable.ic_menu_settings);
+        settings.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
+        Drawable logout = ContextCompat.getDrawable(this, R.drawable.md_nav_back);
+        logout.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
+
         //if you want to update the items at a later time it is recommended to keep it in a variable
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_acc);
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home).withIcon(home);
+        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_acc).withIcon(addAcc);
         // Handle Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //create the drawer and remember the `Drawer` result object
+
         result = new DrawerBuilder()
             .withActivity(this)
             .withToolbar(toolbar)
@@ -166,13 +197,13 @@ public class MainActivity extends BaseActivity {
                 item1,
                 //new DividerDrawerItem(),
                 item2,
-                new SecondaryDrawerItem().withName(R.string.drawer_item_report),
-                new SecondaryDrawerItem().withName(R.string.drawer_item_purchase),
-                new SecondaryDrawerItem().withName(R.string.drawer_item_transaction_log),
-                new SecondaryDrawerItem().withName(R.string.drawer_item_my_qr_code),
-                new SecondaryDrawerItem().withName(R.string.drawer_item_settings),
+                new SecondaryDrawerItem().withName(R.string.drawer_item_report).withIcon(expenceRpt),
+                new SecondaryDrawerItem().withName(R.string.drawer_item_purchase).withIcon(purchase),
+                new SecondaryDrawerItem().withName(R.string.drawer_item_transaction_log).withIcon(log),
+                new SecondaryDrawerItem().withName(R.string.drawer_item_my_qr_code).withIcon(qr),
+                new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(settings),
                 //new SecondaryDrawerItem().withName(R.string.drawer_item_finger_print),
-                new SecondaryDrawerItem().withName(R.string.drawer_item_logout)
+                new SecondaryDrawerItem().withName(R.string.drawer_item_logout).withIcon(logout)
             )
             .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                 @Override
