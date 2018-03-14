@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
@@ -20,7 +19,6 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
-import com.kft.mfs.dialog.DialogManager;
 import com.kft.mfs.dialog.TransactionDetailsDialog.OnOkButtonClickListener;
 import com.mikepenz.itemanimators.AlphaCrossFadeAnimator;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -38,7 +36,7 @@ import es.dmoral.toasty.Toasty;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     /*@BindView(R.id.swipelistView)
     SwipeMenuListView swipeListView;*/
@@ -141,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             .withActivity(this)
             .withHeaderBackground(R.drawable.header)
             .addProfiles(
-                new ProfileDrawerItem().withName("Mr. Customer").withEmail("customer@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
+                new ProfileDrawerItem().withName("Md Abul Kalam").withEmail("abul.kamal@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
             )
             .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                 @Override
@@ -260,13 +258,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected DialogManager dialogManager;
 
-    protected DialogManager getDialogManager(){
-        if(dialogManager == null){
-            dialogManager = new DialogManager(this);
-        }
-        return dialogManager;
-    }
 }
 

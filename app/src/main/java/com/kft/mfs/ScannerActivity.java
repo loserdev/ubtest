@@ -1,14 +1,19 @@
 package com.kft.mfs;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.kft.mfs.dialog.DoubleButtonCustomDialog;
+
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
-public class ScannerActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
+public class ScannerActivity extends BaseActivity implements ZBarScannerView.ResultHandler {
 
   public static String TAG = ScannerActivity.class.getSimpleName();
   private ZBarScannerView mScannerView;
@@ -41,8 +46,28 @@ public class ScannerActivity extends AppCompatActivity implements ZBarScannerVie
 
   @Override
   public void handleResult(Result rawResult) {
-    Toast.makeText(this, "Contents = " + rawResult.getContents() +
-        ", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_SHORT).show();
+
+    getDialogManager().showDoubleButtonCustomDialog("Are you sure ?","You want to Pay 50/= to the Ac. No. 01532476357",R.string.positive_pay,
+
+            new DoubleButtonCustomDialog.OnPositiveBtnClickListener() {
+              @Override
+              public void onPositiveBtnClick(DoubleButtonCustomDialog dialog) {
+                dismissDialog();
+                Intent dashboardIntent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(dashboardIntent);
+
+              }
+            },
+            R.string.negative_pay,
+            new DoubleButtonCustomDialog.OnNegativeBtnClickListener() {
+              @Override
+              public void onNegativeBtnClick(DoubleButtonCustomDialog dialog) {
+                dismissDialog();
+                mScannerView.resumeCameraPreview(ScannerActivity.this);
+
+              }
+            });
+
     // Note:
     // * Wait 2 seconds to resume the preview.
     // * On older devices continuously stopping and resuming camera preview can result in freezing the app.

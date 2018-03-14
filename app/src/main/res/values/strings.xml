@@ -16,5 +16,8 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="ok">Ok</string>
+    <string name="r_u_sure">Are you sure?</string>
+    <string name="positive_pay">Pay</string>
+    <string name="negative_pay">Not now.</string>
 
 </resources>

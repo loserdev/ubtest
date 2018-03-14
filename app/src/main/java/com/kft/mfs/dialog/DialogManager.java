@@ -94,6 +94,12 @@ public class DialogManager {
     this.showDialog(dialog);
   }
 
+  public void showDoubleButtonCustomDialog(String title, String message,
+                                           int positiveBtnTextId, DoubleButtonCustomDialog.OnPositiveBtnClickListener positiveBtnListener,
+                                           int negativeBtnTextId, DoubleButtonCustomDialog.OnNegativeBtnClickListener negativeBtnListener) {
+    DoubleButtonCustomDialog doubleButtonCustomDialog = new DoubleButtonCustomDialog(context, title, message, positiveBtnTextId, positiveBtnListener, negativeBtnTextId, negativeBtnListener);
+    this.showDialog(doubleButtonCustomDialog);
+  }
 
   public void showTransactionDetailDialog(TransactionLog transactionLog,TransactionDetailsDialog.OnOkButtonClickListener btnClickListener) {
     TransactionDetailsDialog transactionSuccessDialog = new TransactionDetailsDialog(context, transactionLog, btnClickListener);
