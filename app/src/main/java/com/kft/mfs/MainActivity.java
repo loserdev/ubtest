@@ -214,8 +214,10 @@ public class MainActivity extends BaseActivity {
                             closeDrawer();
                             break ;
                         case 2:
-                            Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
-                            Intent receipt = new Intent(getApplicationContext(), AddAccountActivity.class);
+                           //Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
+                            //Intent receipt = new Intent(getApplicationContext(), AddAccountActivity.class);
+                            //Intent receipt = new Intent(getApplicationContext(), RegistrationActivity.class);
+                            Intent receipt = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(receipt);
                             break ;
                         case 3:

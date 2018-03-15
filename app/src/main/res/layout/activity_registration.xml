@@ -2,31 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_background"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <include
+   <!-- <include
         android:id="@+id/registration_tool_bar"
-        layout="@layout/tool_bar" />
+        layout="@layout/tool_bar" />-->
 
     <ScrollView
         android:id="@+id/registration_sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/keyboard_view"
-        android:layout_below="@id/registration_tool_bar"
         android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
-            <com.dbbl.nexus.pay.utils.CustomedViewPager
-                android:id="@+id/registration_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+
 
             <LinearLayout
                 android:id="@+id/dots_ll"
@@ -40,7 +33,6 @@
                 android:id="@+id/registration_phone_number_ll"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edit_text_conrol_height"
-                android:layout_below="@+id/registration_view_pager"
                 android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
                 android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
                 android:layout_marginTop="30dp"
@@ -58,8 +50,7 @@
                     android:hint="@string/phone_number_hint"
                     android:textColor="@android:color/black"
                     android:inputType="number"
-                    android:maxLength="@integer/phone_min_length_without_country_code"
-                    android:nextFocusDown="@+id/wallet_pin_et"/>
+                    android:maxLength="@integer/phone_min_length_without_country_code" />
 
                 <ImageView
                     android:layout_width="@dimen/edit_text_icon_width_height2"
@@ -86,7 +77,17 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <include layout="@layout/password_layout" />
+              <EditText
+                android:id="@+id/wallet_pin_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edit_text_background"
+                android:gravity="center"
+                android:hint="@string/phone_number_hint"
+                android:inputType="number"
+                android:maxLength="@integer/phone_min_length_without_country_code"
+                android:textColor="@android:color/black" />
+
 
                 <ImageView
                     android:layout_width="@dimen/edit_text_icon_width_height2"
@@ -94,21 +95,81 @@
                     android:padding="@dimen/edit_text_icon_padding"
                     android:src="@drawable/ic_wallet_pin" />
 
-                <ImageView
-                    android:id="@+id/show_wallet_pin_iv"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_visibility"/>
+
 
             </RelativeLayout>
+          <RelativeLayout
+            android:id="@+id/account_owner_name_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_conrol_height"
+            android:layout_below="@+id/registration_wallet_pin_ll"
+            android:layout_marginLeft="@dimen/single_button_start_end_margin"
+            android:layout_marginRight="@dimen/single_button_start_end_margin"
+            android:layout_marginTop="30dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal">
 
+            <EditText
+              android:id="@+id/account_owner_name_et"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/edit_text_background"
+              android:gravity="center"
+              android:hint="Name"
+              android:inputType="textPersonName|textCapWords"
+              android:maxLength="@integer/max_additional_info_name_lenght"
+              android:nextFocusDown="@+id/account_owner_email_et"
+              />
+
+            <ImageView
+              android:layout_width="@dimen/edit_text_icon_width_height2"
+              android:layout_height="@dimen/edit_text_icon_width_height2"
+              android:padding="@dimen/edit_text_icon_padding"
+              android:src="@drawable/ic_name" />
+
+
+
+          </RelativeLayout>
+
+          <RelativeLayout
+            android:id="@+id/account_owner_email_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_conrol_height"
+            android:layout_below="@+id/account_owner_name_ll"
+            android:layout_marginLeft="@dimen/single_button_start_end_margin"
+            android:layout_marginRight="@dimen/single_button_start_end_margin"
+            android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+              android:id="@+id/account_owner_email_et"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/edit_text_background"
+              android:maxLength="@integer/max_additional_info_email_lenght"
+              android:gravity="center"
+              android:hint="Email"
+              android:inputType="textEmailAddress"
+              />
+
+            <ImageView
+              android:layout_width="@dimen/edit_text_icon_width_height2"
+              android:layout_height="@dimen/edit_text_icon_width_height2"
+              android:padding="@dimen/edit_text_icon_padding"
+              android:src="@drawable/ic_user_email" />
+
+          </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/terms_and_conditions_ll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/registration_wallet_pin_ll"
+                android:layout_below="@+id/account_owner_email_ll"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
@@ -130,7 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/terms_and_conditions_text"
-                    android:textColor="@color/colorPrimaryGrey"
+                    android:textColor="@color/colorGray"
                     android:textStyle="bold"
                     android:paddingRight="10dp"
                     android:paddingTop="10dp"
@@ -141,13 +202,12 @@
             <Button
                 android:id="@+id/registration_btn"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/btn_height"
+                android:layout_height="wrap_content"
                 android:paddingStart="@dimen/single_button_start_end_padding"
                 android:paddingEnd="@dimen/single_button_start_end_padding"
                 android:layout_marginTop="@dimen/button_top_margin"
                 android:layout_below="@+id/terms_and_conditions_ll"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/custom_button_selector"
                 android:elevation="2dp"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_marginLeft="@dimen/single_button_start_end_margin"
