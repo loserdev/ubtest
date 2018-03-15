@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.kft.mfs.ReceiptActivity"/>
+        <activity android:name="com.kft.mfs.AddAccountActivity"/>
         <activity
           android:label="@string/title_activity_report"
           android:name="com.kft.mfs.ReportActivity"/>

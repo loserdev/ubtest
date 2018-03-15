@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!--<include-->
+        <!--android:id="@+id/tc_tool_bar"-->
+        <!--layout="@layout/tool_bar" />-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tc_bottom_ll"
+            android:fillViewport="true">
+
+
+            <TextView
+                android:id="@+id/terms_and_conditions_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp" />
+            <!--<ListView
+                android:id="@+id/terms_and_condition_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>-->
+
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/tc_bottom_ll"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/tc_decline_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/nexuspay_negative_button"
+                android:text="@string/tc_decline_btn_text"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <Button
+                android:id="@+id/tc_agree_btn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button_selector"
+                android:elevation="2dp"
+                android:text="@string/tc_agree_btn_text"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,68 @@
+<resources>
+    <dimen name="appbar_top_padding">0dp</dimen>
+
+    <dimen name="tablayout_height">40dp</dimen>
+    <dimen name="tab_icon_width_height">20dp</dimen>
+    <dimen name="activity_sub_header_tv_size">16sp</dimen>
+
+    <dimen name="content_title_text_size">18sp</dimen>
+    <dimen name="content_margin">30dp</dimen>
+    <dimen name="content_margin_top_top_card_view">15dp</dimen>
+    <dimen name="gap_between_two_adjacent_views">10dp</dimen>
+    <dimen name="app_user_input_component_margin_top">20dp</dimen>
+
+    <dimen name="wallet_pin_ll_left_margin">40dp</dimen>
+    <dimen name="edit_text_icon_width_height2">45dp</dimen>
+
+    <dimen name="btn_height">35dp</dimen>
+    <dimen name="btn_height_list_row">33dp</dimen>
+    <dimen name="btn_elevation">2dp</dimen>
+    <dimen name="single_btn_width">150dp</dimen>
+    <dimen name="password_input_gap">8dp</dimen>
+
+    <dimen name="verification_dialog_bottom_margin">100dp</dimen>
+
+    <dimen name="splash_text_size">12sp</dimen>
+    <dimen name="splash_progress_height">10dp</dimen>
+    <dimen name="splash_progress_width">250dp</dimen>
+
+    <dimen name="dashboard_card_width">284dp</dimen>
+    <dimen name="dashboard_card_height">179dp</dimen>
+    <dimen name="list_card_height">54dp</dimen>
+
+    <dimen name="smaller_card_width">260dp</dimen>
+    <dimen name="smaller_card_height">164dp</dimen>
+
+    <dimen name="secure_keyboard_key_border_width">0dp</dimen>
+    <dimen name="edit_text_conrol_height">35dp</dimen>
+    <!--actually effective border will be 2dp-->
+
+    <!--change_Wallet_PIN-->
+    <dimen name="dot_size">15dp</dimen>
+
+    <!--Balance Inquiry-->
+    <dimen name="balance_inquiry_detail_row_text_size">16sp</dimen>
+    <dimen name="balance_inquiry_detail_row_title_text_size">18sp</dimen>
+
+    <!--biller addition-->
+    <dimen name="biller_addition_drop_down_suggesstions_row_view_padding">7dp</dimen>
+    <dimen name="common_top_layout_height">220dp</dimen>
+
+    <dimen name="edit_text_icon_padding">10dp</dimen>
+
+    <!--Button Configuration-->
+    <dimen name="single_button_start_end_margin">40dp</dimen>
+    <dimen name="single_button_start_end_padding">70dp</dimen>
+    <dimen name="button_top_margin">20dp</dimen>
+    <dimen name="button_round_radius">5dp</dimen>
+    <dimen name="progress_dialog_round_radius">6dp</dimen>
+
+    <!--Oval Button Configuration-->
+    <dimen name="oval_button_round_radius">100dp</dimen>
+    <!--Nexus pay PIN-->
+    <dimen name="key_board_text_size">18sp</dimen>
+    <dimen name="payment_window_text_size">15sp</dimen>
+
+    <!-- Scrollview Bottom Padding -->
+    <dimen name="scroll_view_bottom_margin">30dp</dimen>
+</resources>

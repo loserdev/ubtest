@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -216,7 +215,7 @@ public class MainActivity extends BaseActivity {
                             break ;
                         case 2:
                             Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
-                            Intent receipt = new Intent(getApplicationContext(), ReceiptActivity.class);
+                            Intent receipt = new Intent(getApplicationContext(), AddAccountActivity.class);
                             startActivity(receipt);
                             break ;
                         case 3:

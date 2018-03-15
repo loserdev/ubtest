@@ -21,4 +21,11 @@
     <string name="negative_pay">Not now.</string>
     <string name="bd_tk">৳</string>
 
+    <string name="retype_new_pin_tag_text">Retype</string>
+    <string name="verification_btn_text">Verify</string>
+    <string name="new_pin_tag_text">New PIN</string>
+    <string name="user_id_tag_text">User ID</string>
+    <string name="phone_number_hint">Phone No</string>
+    <string name="auto_login">Auto LogIn</string>
+
 </resources>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/keyboard_view"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/scroll_view_bottom_margin">
+
+            <ImageView
+                android:id="@+id/login_dbbl_pay_iv"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                 />
+
+            <RelativeLayout
+                android:id="@+id/login_phone_number_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_conrol_height"
+                android:layout_below="@+id/login_dbbl_pay_iv"
+                android:layout_marginLeft="@dimen/single_button_start_end_margin"
+                android:layout_marginRight="@dimen/single_button_start_end_margin"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/login_phone_number_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_background"
+                    android:gravity="center"
+                    android:hint="@string/phone_number_hint"
+                    android:inputType="number"
+                    android:maxLength="@integer/phone_min_length_without_country_code"
+                    android:nextFocusDown="@+id/wallet_pin_et"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:layout_width="@dimen/edit_text_icon_width_height2"
+                    android:layout_height="@dimen/edit_text_icon_width_height2"
+                    android:padding="@dimen/edit_text_icon_padding"
+                    android:src="@drawable/ic_mobile_number" />
+
+                <requestFocus />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/login_wallet_pin_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_conrol_height"
+                android:layout_below="@+id/login_phone_number_ll"
+                android:layout_marginLeft="@dimen/single_button_start_end_margin"
+                android:layout_marginRight="@dimen/single_button_start_end_margin"
+                android:layout_marginTop="20dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+
+                <ImageView
+                    android:layout_width="@dimen/edit_text_icon_width_height2"
+                    android:layout_height="@dimen/edit_text_icon_width_height2"
+                    android:padding="@dimen/edit_text_icon_padding"
+                    android:src="@drawable/ic_wallet_pin" />
+
+                <ImageView
+                    android:id="@+id/show_wallet_pin_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                     />
+
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/auto_login_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_wallet_pin_ll"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:scaleX="0.80"
+                android:scaleY="0.80"
+                android:text="@string/auto_login"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/login_btn"
+                style="@style/SingleButtonWithPadding"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_below="@+id/auto_login_cb"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_button_selector"
+                android:elevation="2dp"
+                android:text="@string/login_btn_text"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/forgot_wallet_pin_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:text="@string/wallet_pin_forgot_question"
+                android:textColor="@color/colorPrimaryGrey" />
+
+            <LinearLayout
+                android:id="@+id/registration_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/forgot_wallet_pin_tv"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryRed" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_existence_question" />
+
+                    <TextView
+                        android:id="@+id/register_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/register"
+                        android:textColor="@color/colorPrimaryRed"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

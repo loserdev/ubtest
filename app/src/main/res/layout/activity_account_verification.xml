@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_above="@+id/keyboard_view"
+            android:orientation="vertical">
+
+            <!--<include-->
+                <!-- android:background="@drawable/app_background"
+                android:id="@+id/account_verification_tool_bar"-->
+                <!--layout="@layout/tool_bar" />-->
+
+            <ScrollView
+                android:id="@+id/account_verification_sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content">
+
+                        <!--<include layout="@layout/verification_layout" />-->
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/single_button_start_end_margin"
+                        android:layout_marginRight="@dimen/single_button_start_end_margin">
+
+                        <EditText
+                            android:id="@+id/userid_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_conrol_height"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:hint="@string/user_id_tag_text"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:nextFocusDown="@+id/new_pin_et"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/new_pin_rl"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@+id/userid_et"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:nextFocusDown="@+id/retype_new_pin_et"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/new_pin_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_conrol_height"
+                                android:background="@drawable/edit_text_background"
+                                android:cursorVisible="false"
+                                android:gravity="center"
+                                android:hint="@string/new_pin_tag_text"
+                                android:inputType="number"
+                                android:maxLength="@integer/nexus_pin_length"
+                                android:textColor="@android:color/transparent" />
+
+                            <LinearLayout
+                                android:id="@+id/new_hidden_password_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/retype_new_pin_rl"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@+id/new_pin_rl"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/retype_new_pin_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_conrol_height"
+                                android:background="@drawable/edit_text_background"
+                                android:cursorVisible="false"
+                                android:gravity="center"
+                                android:hint="@string/retype_new_pin_tag_text"
+                                android:inputType="number"
+                                android:maxLength="@integer/nexus_pin_length"
+                                android:textColor="@android:color/transparent"
+                                android:visibility="gone"/>
+
+                            <LinearLayout
+                                android:id="@+id/retype_hidden_password_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+
+                        <Button
+                                android:id="@+id/account_verification_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/btn_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/retype_new_pin_rl"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="@dimen/scroll_view_bottom_margin"
+                                android:elevation="2dp"
+                                android:enabled="false"
+                                android:text="@string/verification_btn_text"
+                                android:textColor="@android:color/white"
+                                />
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+</RelativeLayout>
