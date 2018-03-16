@@ -82,5 +82,6 @@ dependencies {
 
     compile 'com.raycoarana.codeinputview:codeinputview:1.2.5'
 
-    //compile 'com.github.glomadrian:CodeInput:1.1@aar'
+    //Credit Card View
+    compile 'com.braintreepayments:card-form:3.3.0'
 }

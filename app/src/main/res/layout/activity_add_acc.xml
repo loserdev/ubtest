@@ -6,61 +6,8 @@
     android:padding="10dp"
     android:background="#FFF">
 
-    <com.raycoarana.codeinputview.CodeInputView
-        android:id="@+id/pairing"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        app:animate_on_complete="true"
-        app:show_keyboard="true"
-        app:time_character_is_shown_while_typing="500"
-        app:show_password_while_typing="true"
-        app:password_mode="true"
-        app:input_type="numeric"
-        app:length_of_code="4"
-        app:underline_stroke_width="2dp"
-        app:underline_selected_stroke_width="4dp"
-        app:underline_error_stroke_width="4dp"
-        app:code_text_size="44sp">
-        <requestFocus/>
-    </com.raycoarana.codeinputview.CodeInputView>
-
-    <!--<com.raycoarana.codeinputview.CodeInputView
-        android:id="@+id/with_complete_callback"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:underline_width="40dp"
-        app:underline_stroke_width="1dp"
-        app:underline_selected_stroke_width="2dp"
-        app:underline_error_stroke_width="2dp"
-        app:code_text_size="24sp"
-        app:input_type="numeric"
-        app:length_of_code="4"/>-->
-
-    <!--<FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.raycoarana.codeinputview.CodeInputView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:underline_color="#d19385"
-            app:underline_selected_color="#ce3a47"
-            app:code_text_color="#5c282c"
-            app:input_type="text"
-            app:length_of_code="8"/>
-    </FrameLayout>
-
-    <com.raycoarana.codeinputview.CodeInputView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:underline_color="#03A9F4"
-        app:underline_selected_color="#3F51B5"
-        app:code_text_color="#212121"
-        app:length_of_code="10"/>
--->
+    <com.braintreepayments.cardform.view.CardForm
+      android:id="@+id/card_form"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
 </LinearLayout>

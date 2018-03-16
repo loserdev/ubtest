@@ -13,7 +13,8 @@ public class SplashActivity extends BaseActivity{
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    Intent intent = new Intent(this, LoginActivity.class);
+    //Intent intent = new Intent(this, LoginActivity.class);
+    Intent intent = new Intent(this, AddAccountActivity.class);
     startActivity(intent);
     finish();
   }
