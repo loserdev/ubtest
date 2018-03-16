@@ -40,4 +40,9 @@
     <string name="err_msg_phone_number">Invelid phone no.</string>
     <string name="err_msg_wallet_pin">Invalid wallet PIN</string>
     <string name="err_msg_user_name">Name cant be empty</string>
+
+    <string name="logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout_confirmation_title">Logout!</string>
+    <string name="logout_confirmation">Do you want to logout from খুচরা টাকা?</string>
 </resources>

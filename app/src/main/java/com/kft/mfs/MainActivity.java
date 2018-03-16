@@ -24,6 +24,7 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.kft.mfs.dialog.DoubleButtonCustomDialog;
 import com.kft.mfs.dialog.TransactionDetailsDialog.OnOkButtonClickListener;
 import com.mikepenz.itemanimators.AlphaCrossFadeAnimator;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -57,7 +58,7 @@ public class MainActivity extends BaseActivity {
     private Class<?> mClss;
 
     String[] web = { "Sopno","Agora", "Pathao", "Uber", "MinaBazar","7 Eleven"};
-    int[] imageId = { R.drawable.gift4,R.drawable.gift2,R.drawable.gift6,R.drawable.gift3,R.drawable.gift5,R.drawable.gift1};
+    int[] imageId = { R.drawable.gift4,R.drawable.gift3,R.drawable.gift3,R.drawable.gift4,R.drawable.gift4,R.drawable.gift3};
 
 
     @Override
@@ -260,10 +261,12 @@ public class MainActivity extends BaseActivity {
                             Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
                         case 8: // Logout
-                            finish();
+                            onBackPressed();
+
                             break ;
                         case 9:
-                            finish();
+                            onBackPressed();
+                            //finish();
                             break ;
                         default:
                             closeDrawer();
@@ -307,6 +310,26 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        getDialogManager().showDoubleButtonCustomDialog(getString(R.string.logout_confirmation_title), getString(R.string.logout_confirmation),
+                R.string.logout,
+                new DoubleButtonCustomDialog.OnPositiveBtnClickListener() {
+                    @Override
+                    public void onPositiveBtnClick(DoubleButtonCustomDialog dialog) {
+                        //startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        //finishAffinity();
+                        finish();
+                    }
+                },
+                R.string.cancel,
+                new DoubleButtonCustomDialog.OnNegativeBtnClickListener() {
+                    @Override
+                    public void onNegativeBtnClick(DoubleButtonCustomDialog dialog) {
+                        dismissDialog();
+                    }
+                });
+    }
 
 }
 

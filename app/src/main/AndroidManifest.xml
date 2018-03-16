@@ -21,29 +21,40 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.kft.mfs.MainActivity">
+        <activity android:name="com.kft.mfs.MainActivity"
+            android:launchMode="singleInstance">
 
         </activity>
-        <activity android:name="com.kft.mfs.AddAccountActivity"/>
+        <activity android:name="com.kft.mfs.AddAccountActivity"
+            android:launchMode="singleInstance"/>
         <activity
           android:label="@string/title_activity_report"
-          android:name="com.kft.mfs.ReportActivity"/>
+          android:name="com.kft.mfs.ReportActivity"
+            android:launchMode="singleInstance"/>
         <activity
           android:label="@string/title_activity_report_pie"
-          android:name="com.kft.mfs.ReportPiePolyActivity"/>
-        <activity android:name="com.kft.mfs.ScannerActivity">
+          android:name="com.kft.mfs.ReportPiePolyActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name="com.kft.mfs.ScannerActivity"
+            android:launchMode="singleInstance">
         </activity>
-        <activity android:name="com.kft.mfs.MyQrActivity">
+        <activity android:name="com.kft.mfs.MyQrActivity"
+            android:launchMode="singleInstance">
         </activity>
-        <activity android:name="com.kft.mfs.TransactionLogActivity">
+        <activity android:name="com.kft.mfs.TransactionLogActivity"
+            android:launchMode="singleInstance">
         </activity>
-        <activity android:name="com.kft.mfs.LoginActivity">
+        <activity android:name="com.kft.mfs.LoginActivity"
+            android:launchMode="singleInstance">
         </activity>
-        <activity android:name="com.kft.mfs.RegistrationActivity">
+        <activity android:name="com.kft.mfs.RegistrationActivity"
+            android:launchMode="singleInstance">
         </activity>
-        <activity android:name="com.kft.mfs.AccountVerificationActivity">
+        <activity android:name="com.kft.mfs.AccountVerificationActivity"
+            android:launchMode="singleInstance">
         </activity>
-        <activity android:name="com.kft.mfs.TermsAndConditionsActivity">
+        <activity android:name="com.kft.mfs.TermsAndConditionsActivity"
+            android:launchMode="singleInstance">
         </activity>
     </application>
 
