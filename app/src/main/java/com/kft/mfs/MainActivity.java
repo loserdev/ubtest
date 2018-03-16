@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
@@ -33,6 +35,9 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import data.TransactionLog;
 import data.TransactionLogList;
 import es.dmoral.toasty.Toasty;
@@ -41,8 +46,8 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-    /*@BindView(R.id.swipelistView)
-    SwipeMenuListView swipeListView;*/
+    @BindView(R.id.dashboard_grid_view)
+    GridView dashboardGrid;
 
     private List<TransactionLog> mTransLog;
     private TransactionLogListAdapter mTansactionSwipeListAdapter;
@@ -51,13 +56,18 @@ public class MainActivity extends BaseActivity {
     private static final int ZBAR_CAMERA_PERMISSION = 1;
     private Class<?> mClss;
 
+    String[] web = { "Sopno","Agora", "Pathao", "Uber", "MinaBazar","7 Eleven"};
+    int[] imageId = { R.drawable.gift4,R.drawable.gift2,R.drawable.gift6,R.drawable.gift3,R.drawable.gift5,R.drawable.gift1};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         createDrawer();
 
-        // set creator
+        /*// set creator
         mTransLog = TransactionLogList.getAllTransactionLog();
 
         SwipeMenuListView swipeListView = (SwipeMenuListView) findViewById(R.id.swipelistView);
@@ -80,13 +90,27 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 1:
                         // Hide
-                        /*mAppList.remove(position);
-                        mAdapter.notifyDataSetChanged();*/
+                        *//*mAppList.remove(position);
+                        mAdapter.notifyDataSetChanged();*//*
                         break;
                 }
                 return false;
             }
+        });*/
+
+        CustomGrid adapter = new CustomGrid(MainActivity.this, web, imageId);
+
+        dashboardGrid.setAdapter(adapter);
+        dashboardGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                //Toast.makeText(MainActivity.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
+                showInfoToast("25% Discount for purchase in "+web[+ position]);
+            }
         });
+
     }
 
     public void showTransactionDetailDialog(){

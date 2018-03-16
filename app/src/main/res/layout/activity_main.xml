@@ -21,16 +21,7 @@
       android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
       app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <!--<FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar">-->
-    <!-- <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_below="@id/toolbar"
-      android:orientation="vertical"> -->
+
 
       <RelativeLayout
       android:layout_width="284dp"
@@ -113,16 +104,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Last 10 transaction history."
+        android:text="Available Coupon and Voucher!"
         android:textSize="16sp"/>
 
 
-      <com.baoyz.swipemenulistview.SwipeMenuListView
+      <!--<com.baoyz.swipemenulistview.SwipeMenuListView
         android:id="@+id/swipelistView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"/>-->
 
-
+    <GridView
+        android:numColumns="2"
+        android:gravity="center"
+        android:columnWidth="200dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dashboard_grid_view"
+        android:adjustViewBounds="true"
+        />
 
     <!-- </FrameLayout>-->
   </LinearLayout>
