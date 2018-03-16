@@ -30,10 +30,14 @@
     <string name="login_btn_text">Log In</string>
     <string name="account_existence_question">Do you want to register?</string>
     <string name="register">Register</string>
-    <string name="agree_text">Agree to TC</string>
+    <string name="agree_text">Agree to</string>
     <string name="tc_decline_btn_text">Decline</string>
     <string name="tc_agree_btn_text">Agreed</string>
-    <string name="terms_and_conditions_text">T C Text</string>
+    <string name="terms_and_conditions_text"><u>Terms &amp; Conditions</u></string>
     <string name="registration_btn_text">Register</string>
 
+    <string name="required_phone_number_prefix_without_country_code">01</string>
+    <string name="err_msg_phone_number">Invelid phone no.</string>
+    <string name="err_msg_wallet_pin">Invalid wallet PIN</string>
+    <string name="err_msg_user_name">Name cant be empty</string>
 </resources>

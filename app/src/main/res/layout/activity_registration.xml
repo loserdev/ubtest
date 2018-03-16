@@ -1,222 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:fitsSystemWindows="true"
+  android:orientation="vertical">
+
+  <!-- <include
+       android:id="@+id/registration_tool_bar"
+       layout="@layout/tool_bar" />-->
+
+  <ScrollView
+    android:id="@+id/registration_sv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:fillViewport="true">
 
-   <!-- <include
-        android:id="@+id/registration_tool_bar"
-        layout="@layout/tool_bar" />-->
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
 
-    <ScrollView
-        android:id="@+id/registration_sv"
+
+      <LinearLayout
+        android:id="@+id/acc_veri_ll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="100dp"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+      <com.raycoarana.codeinputview.CodeInputView
+        android:id="@+id/acc_verification_code"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:animate_on_complete="false"
+        app:show_keyboard="true"
+        app:time_character_is_shown_while_typing="500"
+        app:show_password_while_typing="true"
+        app:password_mode="false"
+        app:input_type="numeric"
+        app:length_of_code="5"
+        app:underline_stroke_width="2dp"
+        app:underline_selected_stroke_width="4dp"
+        app:underline_error_stroke_width="4dp"
+        app:code_text_size="45sp">
 
+        <requestFocus/>
+      </com.raycoarana.codeinputview.CodeInputView>
 
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:paddingTop="20dp"
+          android:text="Please enter verfication code"/>
 
-            <LinearLayout
-                android:id="@+id/dots_ll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/registration_phone_number_ll"
-                android:gravity="center"
-                android:orientation="horizontal" />
-
-            <RelativeLayout
-                android:id="@+id/registration_phone_number_ll"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_conrol_height"
-                android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
-                android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
-                android:layout_marginTop="30dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/registration_phone_number_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_background"
-                    android:gravity="center"
-                    android:hint="@string/phone_number_hint"
-                    android:textColor="@android:color/black"
-                    android:inputType="number"
-                    android:maxLength="@integer/phone_min_length_without_country_code" />
-
-                <ImageView
-                    android:layout_width="@dimen/edit_text_icon_width_height2"
-                    android:layout_height="@dimen/edit_text_icon_width_height2"
-                    android:padding="@dimen/edit_text_icon_padding"
-                    android:src="@drawable/ic_mobile_number" />
-
-
-
-                <requestFocus />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/registration_wallet_pin_ll"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_conrol_height"
-                android:layout_below="@+id/registration_phone_number_ll"
-                android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
-                android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
-                android:layout_marginTop="20dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-              <EditText
-                android:id="@+id/wallet_pin_et"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/edit_text_background"
-                android:gravity="center"
-                android:hint="@string/phone_number_hint"
-                android:inputType="number"
-                android:maxLength="@integer/phone_min_length_without_country_code"
-                android:textColor="@android:color/black" />
+        <Button
+          android:id="@+id/verify_acc_btn"
+          style="@style/Widget.AppCompat.Button.Colored"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/button_top_margin"
+          android:layout_marginBottom="@dimen/scroll_view_bottom_margin"
+          android:layout_centerHorizontal="true"
+          android:paddingStart="@dimen/single_button_start_end_padding"
+          android:paddingEnd="@dimen/single_button_start_end_padding"
+          android:paddingLeft="70dp"
+          android:paddingRight="70dp"
+          android:elevation="2dp"
+          android:text="Verify"
+          android:textColor="@android:color/white"/>
 
 
-                <ImageView
-                    android:layout_width="@dimen/edit_text_icon_width_height2"
-                    android:layout_height="@dimen/edit_text_icon_width_height2"
-                    android:padding="@dimen/edit_text_icon_padding"
-                    android:src="@drawable/ic_wallet_pin" />
+      </LinearLayout>
+
+      <RelativeLayout
+        android:id="@+id/registration_phone_number_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_conrol_height"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
+        android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+          android:id="@+id/registration_phone_number_et"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/edit_text_background"
+          android:gravity="center"
+          android:hint="@string/phone_number_hint"
+          android:inputType="number"
+          android:maxLength="@integer/phone_min_length_without_country_code"
+          android:textColor="@android:color/black"/>
+
+        <ImageView
+          android:layout_width="@dimen/edit_text_icon_width_height2"
+          android:layout_height="@dimen/edit_text_icon_width_height2"
+          android:padding="@dimen/edit_text_icon_padding"
+          android:src="@drawable/ic_mobile_number"/>
+
+        <requestFocus/>
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/registration_wallet_pin_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_conrol_height"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
+        android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
+        android:layout_below="@+id/registration_phone_number_ll"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+          android:id="@+id/wallet_pin_et"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/edit_text_background"
+          android:gravity="center"
+          android:hint="4 Digit"
+          android:inputType="number"
+          android:maxLength="@integer/wallet_pin_length"
+          android:textColor="@android:color/black"/>
 
 
-
-            </RelativeLayout>
-          <RelativeLayout
-            android:id="@+id/account_owner_name_ll"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edit_text_conrol_height"
-            android:layout_below="@+id/registration_wallet_pin_ll"
-            android:layout_marginLeft="@dimen/single_button_start_end_margin"
-            android:layout_marginRight="@dimen/single_button_start_end_margin"
-            android:layout_marginTop="30dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <EditText
-              android:id="@+id/account_owner_name_et"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/edit_text_background"
-              android:gravity="center"
-              android:hint="Name"
-              android:inputType="textPersonName|textCapWords"
-              android:maxLength="@integer/max_additional_info_name_lenght"
-              android:nextFocusDown="@+id/account_owner_email_et"
-              />
-
-            <ImageView
-              android:layout_width="@dimen/edit_text_icon_width_height2"
-              android:layout_height="@dimen/edit_text_icon_width_height2"
-              android:padding="@dimen/edit_text_icon_padding"
-              android:src="@drawable/ic_name" />
+        <ImageView
+          android:layout_width="@dimen/edit_text_icon_width_height2"
+          android:layout_height="@dimen/edit_text_icon_width_height2"
+          android:padding="@dimen/edit_text_icon_padding"
+          android:src="@drawable/ic_wallet_pin"/>
 
 
+      </RelativeLayout>
 
-          </RelativeLayout>
+      <RelativeLayout
+        android:id="@+id/account_owner_name_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_conrol_height"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="@dimen/single_button_start_end_margin"
+        android:layout_marginRight="@dimen/single_button_start_end_margin"
+        android:layout_below="@+id/registration_wallet_pin_ll"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-          <RelativeLayout
-            android:id="@+id/account_owner_email_ll"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edit_text_conrol_height"
-            android:layout_below="@+id/account_owner_name_ll"
-            android:layout_marginLeft="@dimen/single_button_start_end_margin"
-            android:layout_marginRight="@dimen/single_button_start_end_margin"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+        <EditText
+          android:id="@+id/account_owner_name_et"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/edit_text_background"
+          android:gravity="center"
+          android:hint="Name"
+          android:inputType="textPersonName|textCapWords"
+          android:maxLength="@integer/max_additional_info_name_lenght"
+          android:nextFocusDown="@+id/account_owner_email_et"
+          />
 
-            <EditText
-              android:id="@+id/account_owner_email_et"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/edit_text_background"
-              android:maxLength="@integer/max_additional_info_email_lenght"
-              android:gravity="center"
-              android:hint="Email"
-              android:inputType="textEmailAddress"
-              />
+        <ImageView
+          android:layout_width="@dimen/edit_text_icon_width_height2"
+          android:layout_height="@dimen/edit_text_icon_width_height2"
+          android:padding="@dimen/edit_text_icon_padding"
+          android:src="@drawable/ic_name"/>
 
-            <ImageView
-              android:layout_width="@dimen/edit_text_icon_width_height2"
-              android:layout_height="@dimen/edit_text_icon_width_height2"
-              android:padding="@dimen/edit_text_icon_padding"
-              android:src="@drawable/ic_user_email" />
 
-          </RelativeLayout>
+      </RelativeLayout>
 
-            <LinearLayout
-                android:id="@+id/terms_and_conditions_ll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/account_owner_email_ll"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+      <RelativeLayout
+        android:id="@+id/account_owner_email_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_conrol_height"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/single_button_start_end_margin"
+        android:layout_marginRight="@dimen/single_button_start_end_margin"
+        android:layout_below="@+id/account_owner_name_ll"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-                <CheckBox
-                    android:id="@+id/terms_and_conditions_cb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleX="0.80"
-                    android:scaleY="0.80"/>
+        <EditText
+          android:id="@+id/account_owner_email_et"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/edit_text_background"
+          android:gravity="center"
+          android:hint="Email (optional)"
+          android:inputType="textEmailAddress"
+          android:maxLength="@integer/max_additional_info_email_lenght"
+          />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/agree_text" />
+        <ImageView
+          android:layout_width="@dimen/edit_text_icon_width_height2"
+          android:layout_height="@dimen/edit_text_icon_width_height2"
+          android:padding="@dimen/edit_text_icon_padding"
+          android:src="@drawable/ic_user_email"/>
 
-                <TextView
-                    android:id="@+id/registration_tc_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/terms_and_conditions_text"
-                    android:textColor="@color/colorGray"
-                    android:textStyle="bold"
-                    android:paddingRight="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="14sp"/>
-            </LinearLayout>
+      </RelativeLayout>
 
-            <Button
-                android:id="@+id/registration_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/single_button_start_end_padding"
-                android:paddingEnd="@dimen/single_button_start_end_padding"
-                android:layout_marginTop="@dimen/button_top_margin"
-                android:layout_below="@+id/terms_and_conditions_ll"
-                android:layout_centerHorizontal="true"
-                android:elevation="2dp"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_marginLeft="@dimen/single_button_start_end_margin"
-                android:layout_marginRight="@dimen/single_button_start_end_margin"
-                android:paddingLeft="70dp"
-                android:paddingRight="70dp"
-                android:text="@string/registration_btn_text"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="@dimen/scroll_view_bottom_margin"/>
-        </RelativeLayout>
-    </ScrollView>
+      <LinearLayout
+        android:id="@+id/terms_and_conditions_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="35dp"
+        android:layout_below="@+id/account_owner_email_ll"
+        android:orientation="horizontal">
+
+        <CheckBox
+          android:id="@+id/terms_and_conditions_cb"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:scaleX="0.80"
+          android:scaleY="0.80"/>
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/agree_text"/>
+
+        <TextView
+          android:id="@+id/registration_tc_tv"
+          android:textStyle="bold"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          android:paddingRight="10dp"
+          android:text="@string/terms_and_conditions_text"
+          android:textColor="@color/colorGray"
+          android:textSize="14sp"/>
+      </LinearLayout>
+
+      <Button
+        android:id="@+id/registration_btn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_top_margin"
+        android:layout_marginBottom="@dimen/scroll_view_bottom_margin"
+        android:layout_marginLeft="@dimen/single_button_start_end_margin"
+        android:layout_marginRight="@dimen/single_button_start_end_margin"
+        android:layout_below="@+id/terms_and_conditions_ll"
+        android:layout_centerHorizontal="true"
+        android:paddingStart="@dimen/single_button_start_end_padding"
+        android:paddingEnd="@dimen/single_button_start_end_padding"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:elevation="2dp"
+        android:text="@string/registration_btn_text"
+        android:textColor="@android:color/white"/>
+    </RelativeLayout>
+  </ScrollView>
 </RelativeLayout>

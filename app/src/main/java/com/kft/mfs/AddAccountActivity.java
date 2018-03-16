@@ -15,15 +15,6 @@ public class AddAccountActivity extends BaseActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_add_acc);
-    /*CodeInput cInput = (CodeInput) findViewById(R.id.pairing);
-    cInput.listener.setCodeReadyListener(new CodeInput.codeReadyListener() {
-      @Override
-      public void onCodeReady(Character[] code) {
-        // Code has been entered ....
-        Toast.makeText(AddAccountActivity.this, "code entered is : " + Arrays.toString(code),
-            Toast.LENGTH_SHORT).show();
-      }
-    });*/
 
     final CodeInputView otherCodeInput = (CodeInputView) findViewById(R.id.pairing);
     otherCodeInput.addOnCompleteListener(new OnCodeCompleteListener() {
