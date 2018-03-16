@@ -46,7 +46,7 @@
         app:underline_stroke_width="2dp"
         app:underline_selected_stroke_width="4dp"
         app:underline_error_stroke_width="4dp"
-        app:code_text_size="45sp">
+        app:code_text_size="40sp">
 
         <requestFocus/>
       </com.raycoarana.codeinputview.CodeInputView>

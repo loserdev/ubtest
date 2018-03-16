@@ -2,9 +2,9 @@
 
     <!-- Base application theme. Theme.AppCompat.Light.DarkActionBar -->
     <style name="AppTheme" parent="MaterialDrawerTheme.Light.DarkToolbar.ActionBar.TranslucentStatus">
-        <!-- Customize your theme here.@color/colorPrimaryDark @color/colorAccent-->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#4CAF50</item>
+        <!-- Customize your theme here.@color/colorPrimary @color/colorPrimaryDark @color/colorAccent-->
+        <item name="colorPrimary">#00BFA5</item>
+        <item name="colorPrimaryDark">#4CAFA5</item>
         <item name="colorAccent">#00BFA5</item>
     </style>
 

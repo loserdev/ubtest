@@ -4,7 +4,7 @@
     <color name="edit_text_back_color">#e8e9ed</color>
     <color name="edit_text_border_color">#4e4e50</color>
 
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#00BFA5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlack">#000000</color>
@@ -12,7 +12,7 @@
     <color name="colorGray">#8A000000</color>
     <color name="colorGreen">#00BFA5</color>
 
-    <!-- Material DEFAULT colors -->
+    <!-- Material DEFAULT colors 3F51B5-->
     <color name="material_drawer_primary">#2196F3</color>
     <color name="material_drawer_primary_dark">#1976D2</color>
     <color name="material_drawer_primary_light">#BBDEFB</color>

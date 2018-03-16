@@ -140,7 +140,7 @@ public class MainActivity extends BaseActivity {
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
             .withActivity(this)
-            .withHeaderBackground(R.drawable.header)
+            .withHeaderBackground(R.color.colorPrimary)//R.drawable.header
             .addProfiles(
                 new ProfileDrawerItem().withName("Md Abul Kalam").withEmail("abul.kamal@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
             )
@@ -152,7 +152,7 @@ public class MainActivity extends BaseActivity {
             })
             .build();
 
-        // Create Drawable
+        // Create Drawable 0x7f0500cf
         Drawable home = ContextCompat.getDrawable(this,R.drawable.ic_menu_home);
         home.setColorFilter(new PorterDuffColorFilter(0x7f0500cf, PorterDuff.Mode.SRC_IN));
 
@@ -213,36 +213,29 @@ public class MainActivity extends BaseActivity {
                         case 1:
                             closeDrawer();
                             break ;
-                        case 2:
-                           //Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
-                            //Intent receipt = new Intent(getApplicationContext(), AddAccountActivity.class);
-                            //Intent receipt = new Intent(getApplicationContext(), RegistrationActivity.class);
-                            Intent receipt = new Intent(getApplicationContext(), LoginActivity.class);
+                        case 2: // Add Account
+                            Intent receipt = new Intent(getApplicationContext(), AddAccountActivity.class);
                             startActivity(receipt);
                             break ;
-                        case 3:
-//                            Intent reportIntent = new Intent(getApplicationContext(), ReportActivity.class);
-//                            startActivity(reportIntent);
+                        case 3: // Report Activity
                             Intent reportPiePolyIntent = new Intent(getApplicationContext(), ReportPiePolyActivity.class);
                             startActivity(reportPiePolyIntent);
                             break ;
-                        case 4:
+                        case 4: // Scanner Activity
                             launchActivity(ScannerActivity.class);
                             break ;
                         case 5: // Transaction Log
-                            //Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             Intent transactionLogIntent = new Intent(getApplicationContext(), TransactionLogActivity.class);
                             startActivity(transactionLogIntent);
                             break ;
-                        case 6:
+                        case 6: // My QR
                             Intent myQrIntent = new Intent(getApplicationContext(), MyQrActivity.class);
                             startActivity(myQrIntent);
                             break ;
-                        case 7:
+                        case 7: // Settings
                             Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
                             break ;
-                        case 8:
-                            //Toasty.info(getApplicationContext(),"Under Development", Toast.LENGTH_LONG).show();
+                        case 8: // Logout
                             finish();
                             break ;
                         case 9:

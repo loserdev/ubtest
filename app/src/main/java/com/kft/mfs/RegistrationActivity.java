@@ -140,7 +140,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         }
         return;
       case R.id.verify_acc_btn:
-        startAccountVerificationActivity();
+        startAddAccountActivity();
         return;
       case R.id.tc_agree_btn:
         return;
@@ -180,11 +180,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     return true;
   }
 
-  public void startAccountVerificationActivity() {
+  public void startAddAccountActivity() {
     //preferenceManager.setPhoneNumber(phoneNumber);
-    walletPinEt.getText().clear();
-    //startActivity(new Intent(this, AccountVerificationActivity.class));
-    startActivity(new Intent(this, MainActivity.class));
+    startActivity(new Intent(this, AddAccountActivity.class));
   }
 
   private void invisibleAllRegistrationControlShowActiviationControl()

@@ -14,7 +14,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/scroll_view_bottom_margin"
-      android:layout_marginBottom="@dimen/scroll_view_bottom_margin">
+      android:layout_marginBottom="2dp">
 
 
       <RelativeLayout
@@ -75,17 +75,17 @@
           android:layout_height="match_parent"
           android:background="@drawable/edit_text_background"
           android:gravity="center"
-          android:hint="@string/phone_number_hint"
+          android:hint="4 Digit PIN"
           android:inputType="number"
           android:maxLength="@integer/wallet_pin_length"
           android:textColor="@android:color/black"/>
 
-        <!--<ImageView
-            android:id="@+id/show_wallet_pin_iv"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_alignParentRight="true"
-             />-->
+        <ImageView
+            android:layout_width="@dimen/edit_text_icon_width_height2"
+            android:layout_height="@dimen/edit_text_icon_width_height2"
+            android:padding="@dimen/edit_text_icon_padding"
+            android:src="@drawable/ic_wallet_pin"/>
+
 
       </RelativeLayout>
 
@@ -121,17 +121,7 @@
         android:layout_below="@+id/login_wallet_pin_ll"
         />
 
-      <TextView
-        android:id="@+id/forgot_wallet_pin_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@+id/login_btn"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:text="Forget Wallet Pin?"
-        />
+
 
       <LinearLayout
         android:id="@+id/registration_ll"
@@ -141,7 +131,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/forgot_wallet_pin_tv"
+        android:layout_below="@+id/login_btn"
         android:gravity="bottom"
         android:orientation="vertical"
         android:visibility="visible">
@@ -154,7 +144,7 @@
         <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:paddingTop="10dp"
+          android:paddingTop="5dp"
           android:paddingBottom="10dp"
           android:gravity="center_horizontal"
           android:orientation="horizontal">
@@ -169,7 +159,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="25dp"
             android:text="@string/register"/>
         </LinearLayout>
       </LinearLayout>

@@ -36,9 +36,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
   @BindView(R.id.register_tv)
   TextView registerTv;
 
-  @BindView(R.id.forgot_wallet_pin_tv)
-  TextView forgotPinTv;
-
   private ImageView[] pwIvs;
   private boolean showWalletPin = false;
 
