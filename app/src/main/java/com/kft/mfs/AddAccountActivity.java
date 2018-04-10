@@ -44,6 +44,7 @@ public class AddAccountActivity extends BaseActivity implements View.OnClickList
     switch (view.getId()) {
       case R.id.add_acc_btn:
         startActivity(new Intent(this, MainActivity.class));
+        this.finish();
         return;
 
       default:

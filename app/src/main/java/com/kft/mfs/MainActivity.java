@@ -1,7 +1,5 @@
 package com.kft.mfs;
 
-import adapter.TransactionLogListAdapter;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,9 +8,9 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
@@ -23,7 +21,6 @@ import android.widget.Toast;
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
-import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.kft.mfs.dialog.DoubleButtonCustomDialog;
 import com.kft.mfs.dialog.TransactionDetailsDialog.OnOkButtonClickListener;
 import com.mikepenz.itemanimators.AlphaCrossFadeAnimator;
@@ -37,13 +34,13 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import java.util.List;
+
+import adapter.TransactionLogListAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import data.TransactionLog;
-import data.TransactionLogList;
 import es.dmoral.toasty.Toasty;
-
-import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -109,6 +106,8 @@ public class MainActivity extends BaseActivity {
                                     int position, long id) {
                 //Toast.makeText(MainActivity.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
                 showInfoToast("25% Discount for purchase in "+web[+ position]);
+
+                //getDialogManager().showAppExitDialog(MainActivity.this,R.string.app_name);
             }
         });
 

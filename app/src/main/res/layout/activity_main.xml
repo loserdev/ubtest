@@ -97,7 +97,15 @@
       </RelativeLayout>
 
 
-
+    <TextView
+        android:id="@+id/txtAvailBal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Available Balance: 500,00/="
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_red_A700"/>
 
     <TextView
         android:id="@+id/txtLabel"
@@ -105,7 +113,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Available Coupon and Voucher!"
-        android:textSize="16sp"/>
+        android:paddingTop="30dp"
+        android:textSize="12sp"/>
 
 
       <!--<com.baoyz.swipemenulistview.SwipeMenuListView

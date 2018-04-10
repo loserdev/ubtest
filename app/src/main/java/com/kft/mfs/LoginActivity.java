@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.kft.mfs.util.PreferenceManager;
+
 import appconfig.Constant;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +41,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
   private ImageView[] pwIvs;
   private boolean showWalletPin = false;
+  private PreferenceManager preferenceManager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
   public void initView() {
     loginBtn.setOnClickListener(this);
     registerTv.setOnClickListener(this);
+
+    preferenceManager = PreferenceManager.getPreferenceManager(this);
+
+    if(!preferenceManager.getIsAppFirtTimeRun())
+    {
+      //block Registration UI
+      registrationLl.setVisibility(View.INVISIBLE);
+      phoneNumberEt.setText(preferenceManager.getPhoneNumber());
+    } else {
+      // Do Ui beatification for first run
+    }
+
   }
 
 

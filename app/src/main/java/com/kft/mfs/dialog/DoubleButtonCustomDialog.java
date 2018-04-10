@@ -33,7 +33,7 @@ public class DoubleButtonCustomDialog extends Dialog {
     private OnNegativeBtnClickListener negativeBtnListener;
 
     public DoubleButtonCustomDialog(Context context, String title, String message, int positiveBtnTextId, OnPositiveBtnClickListener positiveBtnListener, int negativeBtnTextId, OnNegativeBtnClickListener negativeBtnListener) {
-        super(context);
+        super(context,R.style.CustomDialogTheme);
 
         this.title = title;
         this.message = message;

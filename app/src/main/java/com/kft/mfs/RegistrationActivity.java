@@ -3,7 +3,7 @@ package com.kft.mfs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +16,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.kft.mfs.util.PreferenceManager;
 import com.raycoarana.codeinputview.CodeInputView;
 import com.raycoarana.codeinputview.OnCodeCompleteListener;
 import java.util.Timer;
@@ -91,6 +93,8 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
       R.drawable.black_card
   };
 
+
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -100,7 +104,8 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
   }
 
   public void initView() {
-    //preferenceManager = PreferenceManager.getPreferenceManager(this);
+
+    preferenceManager = PreferenceManager.getPreferenceManager(this);
     registrationBtn.setOnClickListener(this);
     verifyBtn.setOnClickListener(this);
     accountVerificationCode.addOnCompleteListener(new OnCodeCompleteListener() {
@@ -140,6 +145,8 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         }
         return;
       case R.id.verify_acc_btn:
+        preferenceManager.setPhoneNumber(phoneNumberEt.getText().toString());
+        preferenceManager.setAppFirtTimeRun(false);
         startAddAccountActivity();
         return;
       case R.id.tc_agree_btn:
@@ -183,6 +190,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
   public void startAddAccountActivity() {
     //preferenceManager.setPhoneNumber(phoneNumber);
     startActivity(new Intent(this, AddAccountActivity.class));
+    this.finish();
   }
 
   private void invisibleAllRegistrationControlShowActiviationControl()
