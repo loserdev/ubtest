@@ -11,7 +11,7 @@ import es.dmoral.toasty.Toasty;
  * Created by apple on 13/03/2018.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

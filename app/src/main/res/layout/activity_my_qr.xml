@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context="com.kft.mfs.MyQrActivity">
+  tools:context="com.kft.mfs.MyQrActivity"
+    android:orientation="vertical">
 
   <android.support.v7.widget.Toolbar
       android:id="@+id/toolbar"
@@ -15,12 +16,40 @@
       android:elevation="4dp"
       android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
       app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Scan the QR to Pay or Recharge account"
+      android:padding="35dp"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      android:layout_gravity="center_horizontal"/>
 
   <ImageView
     android:id="@+id/qrImage"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true" />
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+      android:layout_gravity="center"
+    />
 
-</android.support.constraint.ConstraintLayout>
+  <Button
+      android:id="@+id/my_qr_back_btn"
+      style="@style/Widget.AppCompat.Button.Colored"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/button_top_margin"
+      android:layout_marginBottom="@dimen/scroll_view_bottom_margin"
+      android:layout_marginLeft="@dimen/single_button_start_end_margin"
+      android:layout_marginRight="@dimen/single_button_start_end_margin"
+      android:layout_centerHorizontal="true"
+      android:paddingStart="@dimen/single_button_start_end_padding"
+      android:paddingEnd="@dimen/single_button_start_end_padding"
+      android:paddingLeft="70dp"
+      android:paddingRight="70dp"
+      android:elevation="2dp"
+      android:text="DONE"
+      android:textColor="@android:color/white"
+      android:layout_below="@+id/qrid_et"
+      />
+
+</LinearLayout>

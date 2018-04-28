@@ -20,6 +20,30 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
 
+      <ProgressBar
+          android:id="@+id/verification_cpb"
+          style="?android:attr/progressBarStyleHorizontal"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="40dp"
+          android:max="1000"
+          android:progress="0"
+          android:progressDrawable="@drawable/circular_progress_bar"
+          android:rotation="-90"
+          android:visibility="gone"/>
+
+      <TextView
+          android:id="@+id/verification_progress_count_tv"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="30dp"
+          android:gravity="center"
+          android:textColor="@color/colorPrimaryRed"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          android:visibility="gone"/>
 
       <LinearLayout
         android:id="@+id/acc_veri_ll"
@@ -32,7 +56,7 @@
 
       <com.raycoarana.codeinputview.CodeInputView
         android:id="@+id/acc_verification_code"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -65,16 +89,40 @@
           android:layout_marginTop="@dimen/button_top_margin"
           android:layout_marginBottom="@dimen/scroll_view_bottom_margin"
           android:layout_centerHorizontal="true"
-          android:paddingStart="@dimen/single_button_start_end_padding"
-          android:paddingEnd="@dimen/single_button_start_end_padding"
-          android:paddingLeft="70dp"
-          android:paddingRight="70dp"
+          android:paddingStart="90dp"
+          android:paddingEnd="90dp"
+          android:paddingLeft="90dp"
+          android:paddingRight="90dp"
           android:elevation="2dp"
-          android:text="Verify"
+          android:text="Verify Me!"
           android:textColor="@android:color/white"/>
 
 
       </LinearLayout>
+
+      <RelativeLayout
+          android:id="@+id/user_photo_ll"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp"
+          android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
+          android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageview_account_profile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profile"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="2dp" />
+
+      </RelativeLayout>
 
       <RelativeLayout
         android:id="@+id/registration_phone_number_ll"
@@ -85,6 +133,7 @@
         android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
         android:focusable="true"
         android:focusableInTouchMode="true"
+          android:layout_below="@+id/user_photo_ll"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -109,39 +158,7 @@
 
       </RelativeLayout>
 
-      <RelativeLayout
-        android:id="@+id/registration_wallet_pin_ll"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/edit_text_conrol_height"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
-        android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
-        android:layout_below="@+id/registration_phone_number_ll"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:gravity="center"
-        android:orientation="horizontal">
 
-        <EditText
-          android:id="@+id/wallet_pin_et"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:background="@drawable/edit_text_background"
-          android:gravity="center"
-          android:hint="4 Digit"
-          android:inputType="number"
-          android:maxLength="@integer/wallet_pin_length"
-          android:textColor="@android:color/black"/>
-
-
-        <ImageView
-          android:layout_width="@dimen/edit_text_icon_width_height2"
-          android:layout_height="@dimen/edit_text_icon_width_height2"
-          android:padding="@dimen/edit_text_icon_padding"
-          android:src="@drawable/ic_wallet_pin"/>
-
-
-      </RelativeLayout>
 
       <RelativeLayout
         android:id="@+id/account_owner_name_ll"
@@ -150,7 +167,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="@dimen/single_button_start_end_margin"
         android:layout_marginRight="@dimen/single_button_start_end_margin"
-        android:layout_below="@+id/registration_wallet_pin_ll"
+        android:layout_below="@+id/registration_phone_number_ll"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:gravity="center"
@@ -209,13 +226,47 @@
 
       </RelativeLayout>
 
+      <RelativeLayout
+          android:id="@+id/registration_wallet_pin_ll"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/edit_text_conrol_height"
+          android:layout_marginTop="20dp"
+          android:layout_marginLeft="@dimen/wallet_pin_ll_left_margin"
+          android:layout_marginRight="@dimen/wallet_pin_ll_left_margin"
+          android:layout_below="@+id/account_owner_email_ll"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/wallet_pin_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_background"
+            android:gravity="center"
+            android:hint="4 Digit"
+            android:inputType="number"
+            android:maxLength="@integer/wallet_pin_length"
+            android:textColor="@android:color/black"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/edit_text_icon_width_height2"
+            android:layout_height="@dimen/edit_text_icon_width_height2"
+            android:padding="@dimen/edit_text_icon_padding"
+            android:src="@drawable/ic_wallet_pin"/>
+
+
+      </RelativeLayout>
+
       <LinearLayout
         android:id="@+id/terms_and_conditions_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="35dp"
-        android:layout_below="@+id/account_owner_email_ll"
+        android:layout_below="@+id/registration_wallet_pin_ll"
         android:orientation="horizontal">
 
         <CheckBox

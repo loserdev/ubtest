@@ -1,16 +1,22 @@
 package com.kft.mfs;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -58,6 +64,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
   @BindView(R.id.registration_phone_number_ll)
   RelativeLayout phoneNoRL;
 
+  @BindView(R.id.user_photo_ll)
+  RelativeLayout userPhotoRL;
+
   @BindView(R.id.registration_wallet_pin_ll)
   RelativeLayout pinRL;
 
@@ -75,6 +84,12 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
 
   @BindView(R.id.verify_acc_btn)
   Button verifyBtn;
+
+  @BindView(R.id.verification_cpb)
+  ProgressBar counterProgressBar;
+
+  @BindView(R.id.verification_progress_count_tv)
+  TextView counterTextView;
 
 
   private PreferenceManager preferenceManager;
@@ -142,11 +157,13 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         if(validatePhoneNumber(phoneNo)&& validateWalletPin(pin) && validateName(name)) {
           ;
           invisibleAllRegistrationControlShowActiviationControl();
+          animateProgressBar();
         }
         return;
       case R.id.verify_acc_btn:
         preferenceManager.setPhoneNumber(phoneNumberEt.getText().toString());
         preferenceManager.setAppFirtTimeRun(false);
+
         startAddAccountActivity();
         return;
       case R.id.tc_agree_btn:
@@ -195,6 +212,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
 
   private void invisibleAllRegistrationControlShowActiviationControl()
   {
+    userPhotoRL.setVisibility(View.GONE);
     phoneNoRL.setVisibility(View.GONE);
     pinRL.setVisibility(View.GONE);
     nameRL.setVisibility(View.GONE);
@@ -202,6 +220,45 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     tcLL.setVisibility(View.GONE);
     registrationBtn.setVisibility(View.GONE);
     accVerificationLL.setVisibility(View.VISIBLE);
+    //counterProgressBar.setVisibility(View.VISIBLE);
+    counterTextView.setVisibility(View.VISIBLE);
   }
+
+  //@Override
+  public void animateProgressBar() {
+    final ObjectAnimator animator = ObjectAnimator.ofInt(counterProgressBar, "progress", 0, counterProgressBar.getMax());
+    animator.setDuration(60);
+    animator.setInterpolator(new LinearInterpolator());
+    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+      @Override
+      public void onAnimationUpdate(ValueAnimator animation) {
+        int secondsRemaining = 60 - ((Integer) animation.getAnimatedValue() * 60) / counterProgressBar.getMax();
+        counterTextView.setText(secondsRemaining + "\nsec");
+
+        /*if (isCodeReceived) {
+          animation.cancel();
+        }*/
+      }
+    });
+    animator.addListener(new AnimatorListenerAdapter() {
+
+      @Override
+      public void onAnimationEnd(Animator animation) {
+        /*if (!isCodeReceived) {
+          progressCountTv.setVisibility(View.GONE);
+          resendCodeTv.setVisibility(View.VISIBLE);
+          resendCodeTv.setText(getString(R.string.resend_code_text));
+          verificationHintTv.setText(getString(R.string.account_verification_hint));
+        } else {
+          if (VerificationType.FORGOT_WALLET_PIN.getCode() != verificationType) {
+            submitVerificationForm();
+          }
+        }*/
+        super.onAnimationEnd(animation);
+      }
+    });
+    animator.start();
+  }
+
 
 }

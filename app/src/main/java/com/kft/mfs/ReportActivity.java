@@ -43,7 +43,7 @@ public class ReportActivity extends AppCompatActivity implements SeekBar.OnSeekB
     };*/
 
     protected String[] mParties = new String[] {
-            "Emergency Fund", "Housing", "Health Care", "Food", "Groceries", "Entertainment", "Savings", "Utilities"
+            "Transport", "Groceries", "Medicine", "Food", "Utilities", "Entertainment", "Savings", "Emg. Fund"
     };
 
     protected Typeface mTfRegular;

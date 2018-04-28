@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context="com.kft.mfs.MainActivity">
+  tools:context="com.kft.mfs.MainActivity"
+    android:id="@+id/main_const_layout">
+    -->
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context="com.kft.mfs.MainActivity"
+      android:id="@+id/main_const_layout">
 
 
   <LinearLayout
@@ -32,7 +42,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:paddingTop="10dp"
-          android:paddingBottom="20dp"
+          android:paddingBottom="10dp"
           android:paddingLeft="10dp"
           android:paddingRight="10dp"
           android:src="@drawable/blue_card"/>
@@ -41,27 +51,33 @@
           android:id="@+id/main_card_pay_iv"
           android:layout_width="50dp"
           android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:paddingBottom="5dp"
           android:src="@drawable/pay_btn_img"
-          android:visibility="gone"/>
+          />
+
+        <TextView
+            android:id="@+id/card_balance_tv"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:layout_above="@+id/pan_token_tv"
+            android:shadowColor="#8000"
+            android:shadowDx="2.0"
+            android:shadowDy="2.0"
+            android:shadowRadius="1.0"
+            android:text="50,000/="
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"/>
+
 
         <TextView
           android:id="@+id/pan_token_tv"
-          android:textStyle="bold"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="13dp"
-          android:layout_above="@+id/expiry_date_tv"
-          android:shadowColor="#8000"
-          android:shadowDx="2.0"
-          android:shadowDy="2.0"
-          android:shadowRadius="1.0"
-          android:text="2390 3387 9912 7623"
-          android:textColor="@android:color/white"
-          android:textSize="18sp"
-          android:paddingLeft="20dp"/>
-
-        <TextView
-          android:id="@+id/expiry_date_tv"
           android:textStyle="bold"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -71,18 +87,17 @@
           android:shadowDx="2.0"
           android:shadowDy="2.0"
           android:shadowRadius="1.0"
-          android:text="09/22"
+          android:text="2390 3387 9912 7623"
           android:textColor="@android:color/white"
           android:textSize="12sp"
           android:paddingLeft="20dp"/>
-
 
         <TextView
           android:id="@+id/card_holder_name_tv"
           android:textStyle="bold"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginBottom="30dp"
+          android:layout_marginBottom="20dp"
           android:layout_marginLeft="13dp"
           android:shadowColor="#8000"
           android:shadowDx="2.0"
@@ -94,10 +109,33 @@
           android:layout_alignParentBottom="true"
           android:paddingLeft="20dp"/>
 
+        <TextView
+            android:id="@+id/expiry_date_tv"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="13dp"
+            android:shadowColor="#8000"
+            android:shadowDx="2.0"
+            android:shadowDy="2.0"
+            android:shadowRadius="1.0"
+            android:text="09/22"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:paddingRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+
       </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:paddingTop="5dp"
+        android:background="#f0f0f0" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/txtAvailBal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,7 +143,30 @@
         android:text="Available Balance: 500,00/="
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/md_red_A700"/>
+        android:textColor="@color/md_red_A700"/>-->
+
+    <RelativeLayout
+        android:layout_width="284dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/train_card"/>
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingTop="40dp"
+          android:paddingLeft="10dp"
+          android:paddingRight="10dp"
+          android:paddingBottom="10dp"
+          android:src="@drawable/black_card"/>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/txtLabel"
@@ -113,16 +174,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Available Coupon and Voucher!"
-        android:paddingTop="30dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:textSize="12sp"/>
 
 
-      <!--<com.baoyz.swipemenulistview.SwipeMenuListView
-        android:id="@+id/swipelistView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>-->
-
-    <GridView
+    <!--<GridView
         android:numColumns="2"
         android:gravity="center"
         android:columnWidth="200dp"
@@ -131,24 +188,23 @@
         android:layout_height="match_parent"
         android:id="@+id/dashboard_grid_view"
         android:adjustViewBounds="true"
-        />
+        />-->
 
-    <!-- </FrameLayout>-->
   </LinearLayout>
 
+  <android.support.v4.view.ViewPager
+      android:id="@+id/coupon_viewpager"
+      android:layout_width="match_parent"
+      android:layout_height="170dp"
+      android:layout_alignParentBottom="true"
+      android:clipToPadding="false"
+      android:paddingEnd="48dp"
+      android:paddingStart="48dp"
+      android:paddingLeft="48dp"
+      android:paddingRight="48dp"
+      android:paddingBottom="4dp"
+      >
 
-  <!--<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="14dp"
-    android:text="Hello World!"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>-->
+</android.support.v4.view.ViewPager>
 
-  <!--<view-->
-  <!--android:layout_width="match_parent"-->
-  <!--android:layout_height="1dp"-->
-  <!--android:background="@color/colorBlack" />-->
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
